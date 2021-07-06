@@ -3,6 +3,7 @@ import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_add
 import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_address_update.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/customer_update.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
+import 'package:flutter_simple_shopify/models/src/shopify_user/address/address.dart';
 import 'package:graphql/client.dart';
 
 import '../../shopify_config.dart';
@@ -17,19 +18,19 @@ class ShopifyCustomer with ShopifyError {
 
   /// Updated the Address of a Customer, please input only the fields that you wish to update.
   Future<void> customerAddressUpdate(
-      String address1,
-      String address2,
-      String company,
-      String city,
-      String country,
-      String firstName,
-      String lastName,
-      String phone,
-      String province,
-      String zip,
-      String customerAccessToken,
-      id,
-      {bool deleteThisPartOfCache = false}) async {
+      {String? address1,
+      String? address2,
+      String? company,
+      String? city,
+      String? country,
+      String? firstName,
+      String? lastName,
+      String? phone,
+      String? province,
+      String? zip,
+      required String customerAccessToken,
+      required String id,
+      bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(customerAddressUpdateMutation),
         variables: {
@@ -77,7 +78,7 @@ class ShopifyCustomer with ShopifyError {
       'acceptsMarketing': acceptsMarketing,
       'customerAccessToken': customerAccessToken
     }).forEach((k, v) => v != {} ? variableMap[k] = v : {});
-    print(variableMap);
+
     final MutationOptions _options = MutationOptions(
         document: gql(createValidMutationString(variableMap)),
         variables: variableMap);
@@ -93,7 +94,7 @@ class ShopifyCustomer with ShopifyError {
   }
 
   /// Creates a address for the customer to which [customerAccessToken] belongs to.
-  Future<void> customerAddressCreate(
+  Future<Address> customerAddressCreate(
       {String? address1,
       String? address2,
       String? company,
@@ -130,6 +131,9 @@ class ShopifyCustomer with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+
+    return Address.fromJson(
+        (result.data!['customerAddressCreate']['customerAddress'] ?? {}));
   }
 
   /// Deletes the address associated with the [addressId] from the customer to which [customerAccessToken] belongs to.

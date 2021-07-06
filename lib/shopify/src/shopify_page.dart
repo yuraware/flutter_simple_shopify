@@ -2,7 +2,8 @@ import 'package:flutter_simple_shopify/enums/src/sort_key_page.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_all_pages.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_page_by_handle.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
-import 'package:flutter_simple_shopify/models/src/page.dart';
+import 'package:flutter_simple_shopify/models/src/page/page.dart';
+import 'package:flutter_simple_shopify/models/src/page/pages/pages.dart';
 import 'package:graphql/client.dart';
 
 import '../../shopify_config.dart';
@@ -36,7 +37,7 @@ class ShopifyPage with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return (Pages.fromJson((result.data ?? const {})["pages"] ?? const {}))
+    return (Pages.fromGraphJson((result.data ?? const {})["pages"] ?? const {}))
         .pageList;
   }
 
