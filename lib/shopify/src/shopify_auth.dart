@@ -38,7 +38,7 @@ class ShopifyAuth with ShopifyError {
   }
 
   /// Tries to create a new user account with the given email address and password.
-  Future<ShopifyUser> createUserWithEmailAndPassword({
+  Future<ShopifyUser?> createUserWithEmailAndPassword({
     String? firstName,
     String? lastName,
     required String email,
@@ -96,7 +96,7 @@ class ShopifyAuth with ShopifyError {
   }
 
   /// Tries to sign in a user with the given email address and password.
-  Future<ShopifyUser> signInWithEmailAndPassword({
+  Future<ShopifyUser?> signInWithEmailAndPassword({
     required String email,
     required String password,
     bool deleteThisPartOfCache = false,
@@ -125,7 +125,7 @@ class ShopifyAuth with ShopifyError {
   }
 
   /// Tries to sign in a user with the given Multipass token.
-  Future<ShopifyUser> signInWithMultipassToken(
+  Future<ShopifyUser?> signInWithMultipassToken(
     final String multipassToken, {
     bool deleteThisPartOfCache = false,
   }) async {
@@ -222,7 +222,7 @@ class ShopifyAuth with ShopifyError {
     } else if (await currentCustomerAccessToken != null) {
       final QueryResult result = (await _graphQLClient!.query(_getCustomer));
       checkForError(result);
-      ShopifyUser user = ShopifyUser.fromGraphJson(
+      ShopifyUser? user = ShopifyUser.fromGraphJson(
           (result.data ?? const {})['customer'] ?? const {});
       return user;
     } else {

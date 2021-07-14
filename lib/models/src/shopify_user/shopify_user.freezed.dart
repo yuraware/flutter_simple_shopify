@@ -21,23 +21,23 @@ class _$ShopifyUserTearOff {
   const _$ShopifyUserTearOff();
 
   _ShopifyUser call(
-      {Addresses? address,
+      {required String id,
+      required String email,
+      Addresses? address,
       String? createdAt,
       String? displayName,
-      String? email,
       String? firstName,
-      String? id,
       String? lastName,
       String? phone,
       List<String>? tags,
       LastIncompleteCheckout? lastIncompleteCheckout}) {
     return _ShopifyUser(
+      id: id,
+      email: email,
       address: address,
       createdAt: createdAt,
       displayName: displayName,
-      email: email,
       firstName: firstName,
-      id: id,
       lastName: lastName,
       phone: phone,
       tags: tags,
@@ -55,12 +55,12 @@ const $ShopifyUser = _$ShopifyUserTearOff();
 
 /// @nodoc
 mixin _$ShopifyUser {
+  String get id => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   Addresses? get address => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
@@ -79,12 +79,12 @@ abstract class $ShopifyUserCopyWith<$Res> {
           ShopifyUser value, $Res Function(ShopifyUser) then) =
       _$ShopifyUserCopyWithImpl<$Res>;
   $Res call(
-      {Addresses? address,
+      {String id,
+      String email,
+      Addresses? address,
       String? createdAt,
       String? displayName,
-      String? email,
       String? firstName,
-      String? id,
       String? lastName,
       String? phone,
       List<String>? tags,
@@ -104,18 +104,26 @@ class _$ShopifyUserCopyWithImpl<$Res> implements $ShopifyUserCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
+    Object? email = freezed,
     Object? address = freezed,
     Object? createdAt = freezed,
     Object? displayName = freezed,
-    Object? email = freezed,
     Object? firstName = freezed,
-    Object? id = freezed,
     Object? lastName = freezed,
     Object? phone = freezed,
     Object? tags = freezed,
     Object? lastIncompleteCheckout = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -128,17 +136,9 @@ class _$ShopifyUserCopyWithImpl<$Res> implements $ShopifyUserCopyWith<$Res> {
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
       lastName: lastName == freezed
           ? _value.lastName
@@ -191,12 +191,12 @@ abstract class _$ShopifyUserCopyWith<$Res>
       __$ShopifyUserCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Addresses? address,
+      {String id,
+      String email,
+      Addresses? address,
       String? createdAt,
       String? displayName,
-      String? email,
       String? firstName,
-      String? id,
       String? lastName,
       String? phone,
       List<String>? tags,
@@ -220,18 +220,26 @@ class __$ShopifyUserCopyWithImpl<$Res> extends _$ShopifyUserCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
+    Object? email = freezed,
     Object? address = freezed,
     Object? createdAt = freezed,
     Object? displayName = freezed,
-    Object? email = freezed,
     Object? firstName = freezed,
-    Object? id = freezed,
     Object? lastName = freezed,
     Object? phone = freezed,
     Object? tags = freezed,
     Object? lastIncompleteCheckout = freezed,
   }) {
     return _then(_ShopifyUser(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -244,17 +252,9 @@ class __$ShopifyUserCopyWithImpl<$Res> extends _$ShopifyUserCopyWithImpl<$Res>
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
               as String?,
       lastName: lastName == freezed
           ? _value.lastName
@@ -280,12 +280,12 @@ class __$ShopifyUserCopyWithImpl<$Res> extends _$ShopifyUserCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ShopifyUser implements _ShopifyUser {
   _$_ShopifyUser(
-      {this.address,
+      {required this.id,
+      required this.email,
+      this.address,
       this.createdAt,
       this.displayName,
-      this.email,
       this.firstName,
-      this.id,
       this.lastName,
       this.phone,
       this.tags,
@@ -295,17 +295,17 @@ class _$_ShopifyUser implements _ShopifyUser {
       _$_$_ShopifyUserFromJson(json);
 
   @override
+  final String id;
+  @override
+  final String email;
+  @override
   final Addresses? address;
   @override
   final String? createdAt;
   @override
   final String? displayName;
   @override
-  final String? email;
-  @override
   final String? firstName;
-  @override
-  final String? id;
   @override
   final String? lastName;
   @override
@@ -317,13 +317,17 @@ class _$_ShopifyUser implements _ShopifyUser {
 
   @override
   String toString() {
-    return 'ShopifyUser(address: $address, createdAt: $createdAt, displayName: $displayName, email: $email, firstName: $firstName, id: $id, lastName: $lastName, phone: $phone, tags: $tags, lastIncompleteCheckout: $lastIncompleteCheckout)';
+    return 'ShopifyUser(id: $id, email: $email, address: $address, createdAt: $createdAt, displayName: $displayName, firstName: $firstName, lastName: $lastName, phone: $phone, tags: $tags, lastIncompleteCheckout: $lastIncompleteCheckout)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ShopifyUser &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.address, address) ||
                 const DeepCollectionEquality()
                     .equals(other.address, address)) &&
@@ -333,13 +337,9 @@ class _$_ShopifyUser implements _ShopifyUser {
             (identical(other.displayName, displayName) ||
                 const DeepCollectionEquality()
                     .equals(other.displayName, displayName)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.firstName, firstName) ||
                 const DeepCollectionEquality()
                     .equals(other.firstName, firstName)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.lastName, lastName) ||
                 const DeepCollectionEquality()
                     .equals(other.lastName, lastName)) &&
@@ -355,12 +355,12 @@ class _$_ShopifyUser implements _ShopifyUser {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(displayName) ^
-      const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(firstName) ^
-      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(tags) ^
@@ -379,12 +379,12 @@ class _$_ShopifyUser implements _ShopifyUser {
 
 abstract class _ShopifyUser implements ShopifyUser {
   factory _ShopifyUser(
-      {Addresses? address,
+      {required String id,
+      required String email,
+      Addresses? address,
       String? createdAt,
       String? displayName,
-      String? email,
       String? firstName,
-      String? id,
       String? lastName,
       String? phone,
       List<String>? tags,
@@ -394,17 +394,17 @@ abstract class _ShopifyUser implements ShopifyUser {
       _$_ShopifyUser.fromJson;
 
   @override
+  String get id => throw _privateConstructorUsedError;
+  @override
+  String get email => throw _privateConstructorUsedError;
+  @override
   Addresses? get address => throw _privateConstructorUsedError;
   @override
   String? get createdAt => throw _privateConstructorUsedError;
   @override
   String? get displayName => throw _privateConstructorUsedError;
   @override
-  String? get email => throw _privateConstructorUsedError;
-  @override
   String? get firstName => throw _privateConstructorUsedError;
-  @override
-  String? get id => throw _privateConstructorUsedError;
   @override
   String? get lastName => throw _privateConstructorUsedError;
   @override
