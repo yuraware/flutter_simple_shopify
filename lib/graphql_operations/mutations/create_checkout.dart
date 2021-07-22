@@ -57,7 +57,7 @@ mutation checkoutCreate($input: CheckoutCreateInput!) {
       completedAt
       createdAt
       currencyCode
-       discountApplications {
+       discountApplications(first: 10) {
         edges{
           node {
             allocationMethod
