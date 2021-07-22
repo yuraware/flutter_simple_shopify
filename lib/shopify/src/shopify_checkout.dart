@@ -1,7 +1,7 @@
 import 'package:flutter_simple_shopify/enums/src/payment_token_type.dart';
 import 'package:flutter_simple_shopify/enums/src/sort_key_order.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/checkout_complete_free.dart';
-import 'package:flutter_simple_shopify/graphql_operations/mutations/checkout_complete_with_credit_card_V2.dart';
+import 'package:flutter_simple_shopify/graphql_operations/mutations/checkout_complete_token_V2.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/checkout_line_item_add.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/checkout_line_item_remove.dart';
 import 'package:flutter_simple_shopify/graphql_operations/mutations/checkout_line_item_update.dart';
@@ -170,7 +170,7 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Updates the shipping address on given [checkoutId]
-  Future<String?> completeCheckoutWithTokenizedPaymentV2({
+  Future<Checkout?> completeCheckoutWithTokenizedPaymentV2({
     required String checkoutId,
     required PriceV2 price,
     required Address billingAddress,
@@ -214,9 +214,10 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return (result.data!['checkoutCompleteWithTokenizedPaymentV2'] ??
-            const {})['payment']['id'] ??
-        null;
+    return Checkout.fromJson(
+        ((result.data!['checkoutCompleteWithTokenizedPaymentV2'] ??
+                const {})['checkout'] ??
+            const {}));
   }
 
   /// Helper method for transforming a list of variant ids into a List Of Map<String, dynamic> which looks like this:
