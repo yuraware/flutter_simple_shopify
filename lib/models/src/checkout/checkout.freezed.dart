@@ -33,6 +33,8 @@ class _$CheckoutTearOff {
       required PriceV2 subtotalPriceV2,
       required bool requiresShipping,
       required List<AppliedGiftCards> appliedGiftCards,
+      @JsonKey(fromJson: JsonHelper.discountApplications)
+          required List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required List<LineItem> lineItems,
       Order? order,
@@ -58,6 +60,7 @@ class _$CheckoutTearOff {
       subtotalPriceV2: subtotalPriceV2,
       requiresShipping: requiresShipping,
       appliedGiftCards: appliedGiftCards,
+      discountApplications: discountApplications,
       lineItems: lineItems,
       order: order,
       orderStatusUrl: orderStatusUrl,
@@ -96,6 +99,9 @@ mixin _$Checkout {
   bool get requiresShipping => throw _privateConstructorUsedError;
   List<AppliedGiftCards> get appliedGiftCards =>
       throw _privateConstructorUsedError;
+  @JsonKey(fromJson: JsonHelper.discountApplications)
+  List<DiscountApplication> get discountApplications =>
+      throw _privateConstructorUsedError;
   @JsonKey(fromJson: JsonHelper.lineItems)
   List<LineItem> get lineItems => throw _privateConstructorUsedError;
   Order? get order => throw _privateConstructorUsedError;
@@ -132,7 +138,10 @@ abstract class $CheckoutCopyWith<$Res> {
       PriceV2 subtotalPriceV2,
       bool requiresShipping,
       List<AppliedGiftCards> appliedGiftCards,
-      @JsonKey(fromJson: JsonHelper.lineItems) List<LineItem> lineItems,
+      @JsonKey(fromJson: JsonHelper.discountApplications)
+          List<DiscountApplication> discountApplications,
+      @JsonKey(fromJson: JsonHelper.lineItems)
+          List<LineItem> lineItems,
       Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
@@ -175,6 +184,7 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
     Object? subtotalPriceV2 = freezed,
     Object? requiresShipping = freezed,
     Object? appliedGiftCards = freezed,
+    Object? discountApplications = freezed,
     Object? lineItems = freezed,
     Object? order = freezed,
     Object? orderStatusUrl = freezed,
@@ -236,6 +246,10 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
           ? _value.appliedGiftCards
           : appliedGiftCards // ignore: cast_nullable_to_non_nullable
               as List<AppliedGiftCards>,
+      discountApplications: discountApplications == freezed
+          ? _value.discountApplications
+          : discountApplications // ignore: cast_nullable_to_non_nullable
+              as List<DiscountApplication>,
       lineItems: lineItems == freezed
           ? _value.lineItems
           : lineItems // ignore: cast_nullable_to_non_nullable
@@ -368,7 +382,10 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
       PriceV2 subtotalPriceV2,
       bool requiresShipping,
       List<AppliedGiftCards> appliedGiftCards,
-      @JsonKey(fromJson: JsonHelper.lineItems) List<LineItem> lineItems,
+      @JsonKey(fromJson: JsonHelper.discountApplications)
+          List<DiscountApplication> discountApplications,
+      @JsonKey(fromJson: JsonHelper.lineItems)
+          List<LineItem> lineItems,
       Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
@@ -419,6 +436,7 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
     Object? subtotalPriceV2 = freezed,
     Object? requiresShipping = freezed,
     Object? appliedGiftCards = freezed,
+    Object? discountApplications = freezed,
     Object? lineItems = freezed,
     Object? order = freezed,
     Object? orderStatusUrl = freezed,
@@ -480,6 +498,10 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
           ? _value.appliedGiftCards
           : appliedGiftCards // ignore: cast_nullable_to_non_nullable
               as List<AppliedGiftCards>,
+      discountApplications: discountApplications == freezed
+          ? _value.discountApplications
+          : discountApplications // ignore: cast_nullable_to_non_nullable
+              as List<DiscountApplication>,
       lineItems: lineItems == freezed
           ? _value.lineItems
           : lineItems // ignore: cast_nullable_to_non_nullable
@@ -544,7 +566,10 @@ class _$_Checkout extends _Checkout {
       required this.subtotalPriceV2,
       required this.requiresShipping,
       required this.appliedGiftCards,
-      @JsonKey(fromJson: JsonHelper.lineItems) required this.lineItems,
+      @JsonKey(fromJson: JsonHelper.discountApplications)
+          required this.discountApplications,
+      @JsonKey(fromJson: JsonHelper.lineItems)
+          required this.lineItems,
       this.order,
       this.orderStatusUrl,
       this.shopifyPaymentsAccountId,
@@ -585,6 +610,9 @@ class _$_Checkout extends _Checkout {
   @override
   final List<AppliedGiftCards> appliedGiftCards;
   @override
+  @JsonKey(fromJson: JsonHelper.discountApplications)
+  final List<DiscountApplication> discountApplications;
+  @override
   @JsonKey(fromJson: JsonHelper.lineItems)
   final List<LineItem> lineItems;
   @override
@@ -610,7 +638,7 @@ class _$_Checkout extends _Checkout {
 
   @override
   String toString() {
-    return 'Checkout(id: $id, ready: $ready, availableShippingRates: $availableShippingRates, createdAt: $createdAt, currencyCode: $currencyCode, totalTaxV2: $totalTaxV2, totalPriceV2: $totalPriceV2, taxesIncluded: $taxesIncluded, taxExempt: $taxExempt, subtotalPriceV2: $subtotalPriceV2, requiresShipping: $requiresShipping, appliedGiftCards: $appliedGiftCards, lineItems: $lineItems, order: $order, orderStatusUrl: $orderStatusUrl, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, shippingAddress: $shippingAddress, shippingLine: $shippingLine, email: $email, completedAt: $completedAt, note: $note, webUrl: $webUrl, updatedAt: $updatedAt)';
+    return 'Checkout(id: $id, ready: $ready, availableShippingRates: $availableShippingRates, createdAt: $createdAt, currencyCode: $currencyCode, totalTaxV2: $totalTaxV2, totalPriceV2: $totalPriceV2, taxesIncluded: $taxesIncluded, taxExempt: $taxExempt, subtotalPriceV2: $subtotalPriceV2, requiresShipping: $requiresShipping, appliedGiftCards: $appliedGiftCards, discountApplications: $discountApplications, lineItems: $lineItems, order: $order, orderStatusUrl: $orderStatusUrl, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, shippingAddress: $shippingAddress, shippingLine: $shippingLine, email: $email, completedAt: $completedAt, note: $note, webUrl: $webUrl, updatedAt: $updatedAt)';
   }
 
   @override
@@ -651,6 +679,9 @@ class _$_Checkout extends _Checkout {
             (identical(other.appliedGiftCards, appliedGiftCards) ||
                 const DeepCollectionEquality()
                     .equals(other.appliedGiftCards, appliedGiftCards)) &&
+            (identical(other.discountApplications, discountApplications) ||
+                const DeepCollectionEquality().equals(
+                    other.discountApplications, discountApplications)) &&
             (identical(other.lineItems, lineItems) ||
                 const DeepCollectionEquality()
                     .equals(other.lineItems, lineItems)) &&
@@ -678,9 +709,7 @@ class _$_Checkout extends _Checkout {
                 const DeepCollectionEquality().equals(other.note, note)) &&
             (identical(other.webUrl, webUrl) ||
                 const DeepCollectionEquality().equals(other.webUrl, webUrl)) &&
-            (identical(other.updatedAt, updatedAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedAt, updatedAt)));
+            (identical(other.updatedAt, updatedAt) || const DeepCollectionEquality().equals(other.updatedAt, updatedAt)));
   }
 
   @override
@@ -698,6 +727,7 @@ class _$_Checkout extends _Checkout {
       const DeepCollectionEquality().hash(subtotalPriceV2) ^
       const DeepCollectionEquality().hash(requiresShipping) ^
       const DeepCollectionEquality().hash(appliedGiftCards) ^
+      const DeepCollectionEquality().hash(discountApplications) ^
       const DeepCollectionEquality().hash(lineItems) ^
       const DeepCollectionEquality().hash(order) ^
       const DeepCollectionEquality().hash(orderStatusUrl) ^
@@ -735,6 +765,8 @@ abstract class _Checkout extends Checkout {
       required PriceV2 subtotalPriceV2,
       required bool requiresShipping,
       required List<AppliedGiftCards> appliedGiftCards,
+      @JsonKey(fromJson: JsonHelper.discountApplications)
+          required List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required List<LineItem> lineItems,
       Order? order,
@@ -776,6 +808,10 @@ abstract class _Checkout extends Checkout {
   bool get requiresShipping => throw _privateConstructorUsedError;
   @override
   List<AppliedGiftCards> get appliedGiftCards =>
+      throw _privateConstructorUsedError;
+  @override
+  @JsonKey(fromJson: JsonHelper.discountApplications)
+  List<DiscountApplication> get discountApplications =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(fromJson: JsonHelper.lineItems)

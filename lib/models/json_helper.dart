@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/checkout/discount_application/discount_application.dart';
 import 'package:intl/intl.dart';
 
 import 'src/checkout/line_item/line_item.dart';
@@ -16,6 +17,20 @@ class JsonHelper {
 
     return (json['edges'] as List)
         .map((e) => LineItem.fromGraphJson(e))
+        .toList();
+  }
+
+  static List<DiscountApplication> discountApplications(dynamic json) {
+    if (json == null)
+      return [];
+    else if (json is List) {
+      return json.map((e) => DiscountApplication.fromJson(e)).toList();
+    } else if (json['edges'] == null) {
+      return [];
+    }
+
+    return (json['edges'] as List)
+        .map((e) => DiscountApplication.fromGraphJson(e))
         .toList();
   }
 

@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/checkout/discount_application/discount_application.dart';
 import 'package:flutter_simple_shopify/models/src/order/order.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,7 +19,7 @@ class Checkout with _$Checkout {
 
   factory Checkout({
     required String id,
-    required bool ready, 
+    required bool ready,
     required AvailableShippingRates? availableShippingRates,
     required String createdAt,
     required String currencyCode,
@@ -29,6 +30,8 @@ class Checkout with _$Checkout {
     required PriceV2 subtotalPriceV2,
     required bool requiresShipping,
     required List<AppliedGiftCards> appliedGiftCards,
+    @JsonKey(fromJson: JsonHelper.discountApplications)
+        required List<DiscountApplication> discountApplications,
     @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lineItems,
     Order? order,
     String? orderStatusUrl,
