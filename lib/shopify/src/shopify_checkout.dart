@@ -274,7 +274,8 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Applies [discountCode] to the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutDiscountCodeApply(String checkoutId, String discountCode,
+  Future<Checkout> checkoutDiscountCodeApply(
+      String checkoutId, String discountCode,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(checkoutDiscountCodeApplyMutation),
@@ -288,10 +289,14 @@ class ShopifyCheckout with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+
+    return Checkout.fromJson(((result.data!['checkoutDiscountCodeApplyV2'] ??
+            const {})['checkout'] ??
+        const {}));
   }
 
   /// Removes the applied discount from the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutDiscountCodeRemove(String checkoutId,
+  Future<Checkout> checkoutDiscountCodeRemove(String checkoutId,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
         document: gql(checkoutDiscountCodeRemoveMutation),
@@ -305,10 +310,14 @@ class ShopifyCheckout with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+
+    return Checkout.fromJson(
+        ((result.data!['checkoutDiscountCodeRemove'] ?? const {})['checkout'] ??
+            const {}));
   }
 
   /// Appends the [giftCardCodes] to the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutGiftCardAppend(
+  Future<Checkout> checkoutGiftCardAppend(
       String checkoutId, List<String> giftCardCodes,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
@@ -323,6 +332,10 @@ class ShopifyCheckout with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+
+    return Checkout.fromJson(
+        ((result.data!['checkoutGiftCardsAppend'] ?? const {})['checkout'] ??
+            const {}));
   }
 
   Future<Checkout> createCheckout(List<LineItem> lineItems,
@@ -464,7 +477,7 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Removes the Gift card that [appliedGiftCardId] belongs to, from the [Checkout] that [checkoutId] belongs to.
-  Future<void> checkoutGiftCardRemove(
+  Future<Checkout> checkoutGiftCardRemove(
       String appliedGiftCardId, String checkoutId,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
@@ -482,6 +495,10 @@ class ShopifyCheckout with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
+
+    return Checkout.fromJson(
+        ((result.data!['checkoutGiftCardRemoveV2'] ?? const {})['checkout'] ??
+            const {}));
   }
 
   /// Removes the Gift card that [appliedGiftCardId] belongs to, from the [Checkout] that [checkoutId] belongs to.
