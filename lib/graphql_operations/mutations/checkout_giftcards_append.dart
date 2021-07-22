@@ -57,6 +57,16 @@ mutation checkoutGiftCardsAppend($checkoutId : ID!, $giftCardCodes : [String!]!)
       completedAt
       createdAt
       currencyCode
+       discountApplications {
+        edges{
+          node {
+            allocationMethod
+            targetSelection
+            targetType
+            value
+          }
+        }
+      }
       lineItems(first: 10) {
         edges {
           node {
