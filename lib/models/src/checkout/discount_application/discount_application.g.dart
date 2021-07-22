@@ -12,7 +12,7 @@ _$_DiscountApplication _$_$_DiscountApplicationFromJson(
     allocationMethod: json['allocationMethod'] as String,
     targetSelection: json['targetSelection'] as String,
     targetType: json['targetType'] as String,
-    value: PriceV2.fromJson(json['value'] as Map<String, dynamic>),
+    value: json['value'],
   );
 }
 

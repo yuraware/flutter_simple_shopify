@@ -1,3 +1,4 @@
+import 'package:flutter_simple_shopify/models/src/checkout/pricing_percentage_value/pricing_percentage_value.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -11,7 +12,7 @@ class DiscountApplication with _$DiscountApplication {
     required String allocationMethod,
     required String targetSelection,
     required String targetType,
-    required PriceV2 value,
+    required dynamic value,
   }) = _DiscountApplication;
 
   static DiscountApplication fromGraphJson(Map<String, dynamic> json) {
@@ -21,7 +22,9 @@ class DiscountApplication with _$DiscountApplication {
       allocationMethod: nodeJson['allocationMethod'],
       targetSelection: nodeJson['targetSelection'],
       targetType: nodeJson['targetType'],
-      value: PriceV2.fromJson(nodeJson['value']),
+      value: nodeJson['value']['__typname'] == "PricingPercentageValue"
+          ? PricingPercentageValue.fromJson(nodeJson['value'])
+          : PriceV2.fromJson(nodeJson['value']),
     );
   }
 

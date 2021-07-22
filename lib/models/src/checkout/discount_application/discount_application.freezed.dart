@@ -24,7 +24,7 @@ class _$DiscountApplicationTearOff {
       {required String allocationMethod,
       required String targetSelection,
       required String targetType,
-      required PriceV2 value}) {
+      required dynamic value}) {
     return _DiscountApplication(
       allocationMethod: allocationMethod,
       targetSelection: targetSelection,
@@ -46,7 +46,7 @@ mixin _$DiscountApplication {
   String get allocationMethod => throw _privateConstructorUsedError;
   String get targetSelection => throw _privateConstructorUsedError;
   String get targetType => throw _privateConstructorUsedError;
-  PriceV2 get value => throw _privateConstructorUsedError;
+  dynamic get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,9 +63,7 @@ abstract class $DiscountApplicationCopyWith<$Res> {
       {String allocationMethod,
       String targetSelection,
       String targetType,
-      PriceV2 value});
-
-  $PriceV2CopyWith<$Res> get value;
+      dynamic value});
 }
 
 /// @nodoc
@@ -100,15 +98,8 @@ class _$DiscountApplicationCopyWithImpl<$Res>
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as PriceV2,
+              as dynamic,
     ));
-  }
-
-  @override
-  $PriceV2CopyWith<$Res> get value {
-    return $PriceV2CopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
   }
 }
 
@@ -123,10 +114,7 @@ abstract class _$DiscountApplicationCopyWith<$Res>
       {String allocationMethod,
       String targetSelection,
       String targetType,
-      PriceV2 value});
-
-  @override
-  $PriceV2CopyWith<$Res> get value;
+      dynamic value});
 }
 
 /// @nodoc
@@ -163,7 +151,7 @@ class __$DiscountApplicationCopyWithImpl<$Res>
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as PriceV2,
+              as dynamic,
     ));
   }
 }
@@ -188,7 +176,7 @@ class _$_DiscountApplication extends _DiscountApplication {
   @override
   final String targetType;
   @override
-  final PriceV2 value;
+  final dynamic value;
 
   @override
   String toString() {
@@ -237,7 +225,7 @@ abstract class _DiscountApplication extends DiscountApplication {
       {required String allocationMethod,
       required String targetSelection,
       required String targetType,
-      required PriceV2 value}) = _$_DiscountApplication;
+      required dynamic value}) = _$_DiscountApplication;
   _DiscountApplication._() : super._();
 
   factory _DiscountApplication.fromJson(Map<String, dynamic> json) =
@@ -250,7 +238,7 @@ abstract class _DiscountApplication extends DiscountApplication {
   @override
   String get targetType => throw _privateConstructorUsedError;
   @override
-  PriceV2 get value => throw _privateConstructorUsedError;
+  dynamic get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$DiscountApplicationCopyWith<_DiscountApplication> get copyWith =>
