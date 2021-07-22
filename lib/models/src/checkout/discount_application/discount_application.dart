@@ -22,7 +22,7 @@ class DiscountApplication with _$DiscountApplication {
       allocationMethod: nodeJson['allocationMethod'],
       targetSelection: nodeJson['targetSelection'],
       targetType: nodeJson['targetType'],
-      value: nodeJson['value']['__typname'] == "PricingPercentageValue"
+      value: nodeJson['value']['__typename'] == "PricingPercentageValue"
           ? PricingPercentageValue.fromJson(nodeJson['value'])
           : PriceV2.fromJson(nodeJson['value']),
     );
