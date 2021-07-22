@@ -63,7 +63,16 @@ mutation checkoutDiscountCodeApply($checkoutId : ID!, $discountCode : String!) {
             allocationMethod
             targetSelection
             targetType
-            value
+            value {
+              __typename
+              ... on PricingPercentageValue {
+                percentage
+              }
+              ... on MoneyV2 {
+                amount
+                currencyCode
+              }
+            }
           }
         }
       }

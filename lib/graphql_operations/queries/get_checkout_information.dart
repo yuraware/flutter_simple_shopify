@@ -69,7 +69,16 @@ query($id: ID!){
             allocationMethod
             targetSelection
             targetType
-            value
+             value {
+              __typename
+              ... on PricingPercentageValue {
+                percentage
+              }
+              ... on MoneyV2 {
+                amount
+                currencyCode
+              }
+            }
           }
         }
       }
