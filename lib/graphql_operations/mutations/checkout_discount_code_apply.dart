@@ -115,6 +115,10 @@ mutation checkoutDiscountCodeApply($checkoutId : ID!, $discountCode : String!) {
         amount
         currencyCode
       }
+      paymentDueV2 {
+        amount
+        currencyCode
+      }
       taxesIncluded
       taxExempt
       subtotalPriceV2 {

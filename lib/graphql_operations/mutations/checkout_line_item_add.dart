@@ -100,6 +100,10 @@ mutation checkoutLineItemsAdd($lineItems: [CheckoutLineItemInput!]!, $checkoutId
         amount
         currencyCode
       }
+      paymentDueV2 {
+        amount
+        currencyCode
+      }
       taxesIncluded
       taxExempt
       subtotalPriceV2 {

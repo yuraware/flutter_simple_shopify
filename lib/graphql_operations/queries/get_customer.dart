@@ -60,6 +60,10 @@ query($customerAccessToken : String!){
           amount
           currencyCode
         }
+        paymentDueV2 {
+        amount
+        currencyCode
+      }
         lineItemsSubtotalPrice {
           amount
           currencyCode

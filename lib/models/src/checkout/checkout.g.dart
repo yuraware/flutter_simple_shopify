@@ -19,6 +19,8 @@ _$_Checkout _$_$_CheckoutFromJson(Map<String, dynamic> json) {
     totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
     totalPriceV2:
         PriceV2.fromJson(json['totalPriceV2'] as Map<String, dynamic>),
+    paymentDueV2:
+        PriceV2.fromJson(json['paymentDueV2'] as Map<String, dynamic>),
     taxesIncluded: json['taxesIncluded'] as bool,
     taxExempt: json['taxExempt'] as bool,
     subtotalPriceV2:
@@ -59,6 +61,7 @@ Map<String, dynamic> _$_$_CheckoutToJson(_$_Checkout instance) =>
       'currencyCode': instance.currencyCode,
       'totalTaxV2': instance.totalTaxV2,
       'totalPriceV2': instance.totalPriceV2,
+      'paymentDueV2': instance.paymentDueV2,
       'taxesIncluded': instance.taxesIncluded,
       'taxExempt': instance.taxExempt,
       'subtotalPriceV2': instance.subtotalPriceV2,

@@ -28,6 +28,7 @@ class _$CheckoutTearOff {
       required String currencyCode,
       required PriceV2 totalTaxV2,
       required PriceV2 totalPriceV2,
+      required PriceV2 paymentDueV2,
       required bool taxesIncluded,
       required bool taxExempt,
       required PriceV2 subtotalPriceV2,
@@ -55,6 +56,7 @@ class _$CheckoutTearOff {
       currencyCode: currencyCode,
       totalTaxV2: totalTaxV2,
       totalPriceV2: totalPriceV2,
+      paymentDueV2: paymentDueV2,
       taxesIncluded: taxesIncluded,
       taxExempt: taxExempt,
       subtotalPriceV2: subtotalPriceV2,
@@ -93,6 +95,7 @@ mixin _$Checkout {
   String get currencyCode => throw _privateConstructorUsedError;
   PriceV2 get totalTaxV2 => throw _privateConstructorUsedError;
   PriceV2 get totalPriceV2 => throw _privateConstructorUsedError;
+  PriceV2 get paymentDueV2 => throw _privateConstructorUsedError;
   bool get taxesIncluded => throw _privateConstructorUsedError;
   bool get taxExempt => throw _privateConstructorUsedError;
   PriceV2 get subtotalPriceV2 => throw _privateConstructorUsedError;
@@ -133,6 +136,7 @@ abstract class $CheckoutCopyWith<$Res> {
       String currencyCode,
       PriceV2 totalTaxV2,
       PriceV2 totalPriceV2,
+      PriceV2 paymentDueV2,
       bool taxesIncluded,
       bool taxExempt,
       PriceV2 subtotalPriceV2,
@@ -156,6 +160,7 @@ abstract class $CheckoutCopyWith<$Res> {
   $AvailableShippingRatesCopyWith<$Res>? get availableShippingRates;
   $PriceV2CopyWith<$Res> get totalTaxV2;
   $PriceV2CopyWith<$Res> get totalPriceV2;
+  $PriceV2CopyWith<$Res> get paymentDueV2;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   $OrderCopyWith<$Res>? get order;
   $MailingAddressCopyWith<$Res>? get shippingAddress;
@@ -179,6 +184,7 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
     Object? currencyCode = freezed,
     Object? totalTaxV2 = freezed,
     Object? totalPriceV2 = freezed,
+    Object? paymentDueV2 = freezed,
     Object? taxesIncluded = freezed,
     Object? taxExempt = freezed,
     Object? subtotalPriceV2 = freezed,
@@ -225,6 +231,10 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
       totalPriceV2: totalPriceV2 == freezed
           ? _value.totalPriceV2
           : totalPriceV2 // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      paymentDueV2: paymentDueV2 == freezed
+          ? _value.paymentDueV2
+          : paymentDueV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
       taxesIncluded: taxesIncluded == freezed
           ? _value.taxesIncluded
@@ -324,6 +334,13 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
   }
 
   @override
+  $PriceV2CopyWith<$Res> get paymentDueV2 {
+    return $PriceV2CopyWith<$Res>(_value.paymentDueV2, (value) {
+      return _then(_value.copyWith(paymentDueV2: value));
+    });
+  }
+
+  @override
   $PriceV2CopyWith<$Res> get subtotalPriceV2 {
     return $PriceV2CopyWith<$Res>(_value.subtotalPriceV2, (value) {
       return _then(_value.copyWith(subtotalPriceV2: value));
@@ -377,6 +394,7 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
       String currencyCode,
       PriceV2 totalTaxV2,
       PriceV2 totalPriceV2,
+      PriceV2 paymentDueV2,
       bool taxesIncluded,
       bool taxExempt,
       PriceV2 subtotalPriceV2,
@@ -403,6 +421,8 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalTaxV2;
   @override
   $PriceV2CopyWith<$Res> get totalPriceV2;
+  @override
+  $PriceV2CopyWith<$Res> get paymentDueV2;
   @override
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   @override
@@ -431,6 +451,7 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
     Object? currencyCode = freezed,
     Object? totalTaxV2 = freezed,
     Object? totalPriceV2 = freezed,
+    Object? paymentDueV2 = freezed,
     Object? taxesIncluded = freezed,
     Object? taxExempt = freezed,
     Object? subtotalPriceV2 = freezed,
@@ -477,6 +498,10 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
       totalPriceV2: totalPriceV2 == freezed
           ? _value.totalPriceV2
           : totalPriceV2 // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
+      paymentDueV2: paymentDueV2 == freezed
+          ? _value.paymentDueV2
+          : paymentDueV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
       taxesIncluded: taxesIncluded == freezed
           ? _value.taxesIncluded
@@ -561,6 +586,7 @@ class _$_Checkout extends _Checkout {
       required this.currencyCode,
       required this.totalTaxV2,
       required this.totalPriceV2,
+      required this.paymentDueV2,
       required this.taxesIncluded,
       required this.taxExempt,
       required this.subtotalPriceV2,
@@ -600,6 +626,8 @@ class _$_Checkout extends _Checkout {
   @override
   final PriceV2 totalPriceV2;
   @override
+  final PriceV2 paymentDueV2;
+  @override
   final bool taxesIncluded;
   @override
   final bool taxExempt;
@@ -638,7 +666,7 @@ class _$_Checkout extends _Checkout {
 
   @override
   String toString() {
-    return 'Checkout(id: $id, ready: $ready, availableShippingRates: $availableShippingRates, createdAt: $createdAt, currencyCode: $currencyCode, totalTaxV2: $totalTaxV2, totalPriceV2: $totalPriceV2, taxesIncluded: $taxesIncluded, taxExempt: $taxExempt, subtotalPriceV2: $subtotalPriceV2, requiresShipping: $requiresShipping, appliedGiftCards: $appliedGiftCards, discountApplications: $discountApplications, lineItems: $lineItems, order: $order, orderStatusUrl: $orderStatusUrl, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, shippingAddress: $shippingAddress, shippingLine: $shippingLine, email: $email, completedAt: $completedAt, note: $note, webUrl: $webUrl, updatedAt: $updatedAt)';
+    return 'Checkout(id: $id, ready: $ready, availableShippingRates: $availableShippingRates, createdAt: $createdAt, currencyCode: $currencyCode, totalTaxV2: $totalTaxV2, totalPriceV2: $totalPriceV2, paymentDueV2: $paymentDueV2, taxesIncluded: $taxesIncluded, taxExempt: $taxExempt, subtotalPriceV2: $subtotalPriceV2, requiresShipping: $requiresShipping, appliedGiftCards: $appliedGiftCards, discountApplications: $discountApplications, lineItems: $lineItems, order: $order, orderStatusUrl: $orderStatusUrl, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, shippingAddress: $shippingAddress, shippingLine: $shippingLine, email: $email, completedAt: $completedAt, note: $note, webUrl: $webUrl, updatedAt: $updatedAt)';
   }
 
   @override
@@ -664,6 +692,9 @@ class _$_Checkout extends _Checkout {
             (identical(other.totalPriceV2, totalPriceV2) ||
                 const DeepCollectionEquality()
                     .equals(other.totalPriceV2, totalPriceV2)) &&
+            (identical(other.paymentDueV2, paymentDueV2) ||
+                const DeepCollectionEquality()
+                    .equals(other.paymentDueV2, paymentDueV2)) &&
             (identical(other.taxesIncluded, taxesIncluded) ||
                 const DeepCollectionEquality()
                     .equals(other.taxesIncluded, taxesIncluded)) &&
@@ -705,10 +736,8 @@ class _$_Checkout extends _Checkout {
             (identical(other.completedAt, completedAt) ||
                 const DeepCollectionEquality()
                     .equals(other.completedAt, completedAt)) &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
-            (identical(other.webUrl, webUrl) ||
-                const DeepCollectionEquality().equals(other.webUrl, webUrl)) &&
+            (identical(other.note, note) || const DeepCollectionEquality().equals(other.note, note)) &&
+            (identical(other.webUrl, webUrl) || const DeepCollectionEquality().equals(other.webUrl, webUrl)) &&
             (identical(other.updatedAt, updatedAt) || const DeepCollectionEquality().equals(other.updatedAt, updatedAt)));
   }
 
@@ -722,6 +751,7 @@ class _$_Checkout extends _Checkout {
       const DeepCollectionEquality().hash(currencyCode) ^
       const DeepCollectionEquality().hash(totalTaxV2) ^
       const DeepCollectionEquality().hash(totalPriceV2) ^
+      const DeepCollectionEquality().hash(paymentDueV2) ^
       const DeepCollectionEquality().hash(taxesIncluded) ^
       const DeepCollectionEquality().hash(taxExempt) ^
       const DeepCollectionEquality().hash(subtotalPriceV2) ^
@@ -760,6 +790,7 @@ abstract class _Checkout extends Checkout {
       required String currencyCode,
       required PriceV2 totalTaxV2,
       required PriceV2 totalPriceV2,
+      required PriceV2 paymentDueV2,
       required bool taxesIncluded,
       required bool taxExempt,
       required PriceV2 subtotalPriceV2,
@@ -798,6 +829,8 @@ abstract class _Checkout extends Checkout {
   PriceV2 get totalTaxV2 => throw _privateConstructorUsedError;
   @override
   PriceV2 get totalPriceV2 => throw _privateConstructorUsedError;
+  @override
+  PriceV2 get paymentDueV2 => throw _privateConstructorUsedError;
   @override
   bool get taxesIncluded => throw _privateConstructorUsedError;
   @override

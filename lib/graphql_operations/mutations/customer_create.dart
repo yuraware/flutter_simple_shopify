@@ -60,6 +60,10 @@ mutation MyMutation($firstName: String, $lastName: String, $email: String!, $pas
           amount
           currencyCode
         }
+        paymentDueV2 {
+        amount
+        currencyCode
+      }
         lineItemsSubtotalPrice {
           amount
           currencyCode

@@ -115,6 +115,10 @@ mutation checkoutCreate($input: CheckoutCreateInput!) {
         amount
         currencyCode
       }
+      paymentDueV2 {
+        amount
+        currencyCode
+      }
       taxesIncluded
       taxExempt
       subtotalPriceV2 {

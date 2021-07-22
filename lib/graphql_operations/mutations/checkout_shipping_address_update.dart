@@ -111,6 +111,10 @@ mutation checkoutShippingAddressUpdate($checkoutId : ID!, $address1 : String, $a
         amount
         currencyCode
       }
+      paymentDueV2 {
+        amount
+        currencyCode
+      }
       taxesIncluded
       taxExempt
       subtotalPriceV2 {

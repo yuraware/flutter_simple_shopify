@@ -25,6 +25,7 @@ class Checkout with _$Checkout {
     required String currencyCode,
     required PriceV2 totalTaxV2,
     required PriceV2 totalPriceV2,
+    required PriceV2 paymentDueV2,
     required bool taxesIncluded,
     required bool taxExempt,
     required PriceV2 subtotalPriceV2,
