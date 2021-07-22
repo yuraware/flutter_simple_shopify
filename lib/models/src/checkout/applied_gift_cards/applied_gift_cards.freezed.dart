@@ -23,11 +23,15 @@ class _$AppliedGiftCardsTearOff {
   _AppliedGiftCards call(
       {required PriceV2 amountUsedV2,
       required PriceV2 balanceV2,
-      required String id}) {
+      required String id,
+      required String lastCharacters,
+      required PriceV2 presentmentAmountUsed}) {
     return _AppliedGiftCards(
       amountUsedV2: amountUsedV2,
       balanceV2: balanceV2,
       id: id,
+      lastCharacters: lastCharacters,
+      presentmentAmountUsed: presentmentAmountUsed,
     );
   }
 
@@ -44,6 +48,8 @@ mixin _$AppliedGiftCards {
   PriceV2 get amountUsedV2 => throw _privateConstructorUsedError;
   PriceV2 get balanceV2 => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  String get lastCharacters => throw _privateConstructorUsedError;
+  PriceV2 get presentmentAmountUsed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,10 +62,16 @@ abstract class $AppliedGiftCardsCopyWith<$Res> {
   factory $AppliedGiftCardsCopyWith(
           AppliedGiftCards value, $Res Function(AppliedGiftCards) then) =
       _$AppliedGiftCardsCopyWithImpl<$Res>;
-  $Res call({PriceV2 amountUsedV2, PriceV2 balanceV2, String id});
+  $Res call(
+      {PriceV2 amountUsedV2,
+      PriceV2 balanceV2,
+      String id,
+      String lastCharacters,
+      PriceV2 presentmentAmountUsed});
 
   $PriceV2CopyWith<$Res> get amountUsedV2;
   $PriceV2CopyWith<$Res> get balanceV2;
+  $PriceV2CopyWith<$Res> get presentmentAmountUsed;
 }
 
 /// @nodoc
@@ -76,6 +88,8 @@ class _$AppliedGiftCardsCopyWithImpl<$Res>
     Object? amountUsedV2 = freezed,
     Object? balanceV2 = freezed,
     Object? id = freezed,
+    Object? lastCharacters = freezed,
+    Object? presentmentAmountUsed = freezed,
   }) {
     return _then(_value.copyWith(
       amountUsedV2: amountUsedV2 == freezed
@@ -90,6 +104,14 @@ class _$AppliedGiftCardsCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      lastCharacters: lastCharacters == freezed
+          ? _value.lastCharacters
+          : lastCharacters // ignore: cast_nullable_to_non_nullable
+              as String,
+      presentmentAmountUsed: presentmentAmountUsed == freezed
+          ? _value.presentmentAmountUsed
+          : presentmentAmountUsed // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
     ));
   }
 
@@ -106,6 +128,13 @@ class _$AppliedGiftCardsCopyWithImpl<$Res>
       return _then(_value.copyWith(balanceV2: value));
     });
   }
+
+  @override
+  $PriceV2CopyWith<$Res> get presentmentAmountUsed {
+    return $PriceV2CopyWith<$Res>(_value.presentmentAmountUsed, (value) {
+      return _then(_value.copyWith(presentmentAmountUsed: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -115,12 +144,19 @@ abstract class _$AppliedGiftCardsCopyWith<$Res>
           _AppliedGiftCards value, $Res Function(_AppliedGiftCards) then) =
       __$AppliedGiftCardsCopyWithImpl<$Res>;
   @override
-  $Res call({PriceV2 amountUsedV2, PriceV2 balanceV2, String id});
+  $Res call(
+      {PriceV2 amountUsedV2,
+      PriceV2 balanceV2,
+      String id,
+      String lastCharacters,
+      PriceV2 presentmentAmountUsed});
 
   @override
   $PriceV2CopyWith<$Res> get amountUsedV2;
   @override
   $PriceV2CopyWith<$Res> get balanceV2;
+  @override
+  $PriceV2CopyWith<$Res> get presentmentAmountUsed;
 }
 
 /// @nodoc
@@ -139,6 +175,8 @@ class __$AppliedGiftCardsCopyWithImpl<$Res>
     Object? amountUsedV2 = freezed,
     Object? balanceV2 = freezed,
     Object? id = freezed,
+    Object? lastCharacters = freezed,
+    Object? presentmentAmountUsed = freezed,
   }) {
     return _then(_AppliedGiftCards(
       amountUsedV2: amountUsedV2 == freezed
@@ -153,6 +191,14 @@ class __$AppliedGiftCardsCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      lastCharacters: lastCharacters == freezed
+          ? _value.lastCharacters
+          : lastCharacters // ignore: cast_nullable_to_non_nullable
+              as String,
+      presentmentAmountUsed: presentmentAmountUsed == freezed
+          ? _value.presentmentAmountUsed
+          : presentmentAmountUsed // ignore: cast_nullable_to_non_nullable
+              as PriceV2,
     ));
   }
 }
@@ -161,7 +207,11 @@ class __$AppliedGiftCardsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AppliedGiftCards extends _AppliedGiftCards {
   _$_AppliedGiftCards(
-      {required this.amountUsedV2, required this.balanceV2, required this.id})
+      {required this.amountUsedV2,
+      required this.balanceV2,
+      required this.id,
+      required this.lastCharacters,
+      required this.presentmentAmountUsed})
       : super._();
 
   factory _$_AppliedGiftCards.fromJson(Map<String, dynamic> json) =>
@@ -173,10 +223,14 @@ class _$_AppliedGiftCards extends _AppliedGiftCards {
   final PriceV2 balanceV2;
   @override
   final String id;
+  @override
+  final String lastCharacters;
+  @override
+  final PriceV2 presentmentAmountUsed;
 
   @override
   String toString() {
-    return 'AppliedGiftCards(amountUsedV2: $amountUsedV2, balanceV2: $balanceV2, id: $id)';
+    return 'AppliedGiftCards(amountUsedV2: $amountUsedV2, balanceV2: $balanceV2, id: $id, lastCharacters: $lastCharacters, presentmentAmountUsed: $presentmentAmountUsed)';
   }
 
   @override
@@ -190,7 +244,13 @@ class _$_AppliedGiftCards extends _AppliedGiftCards {
                 const DeepCollectionEquality()
                     .equals(other.balanceV2, balanceV2)) &&
             (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.lastCharacters, lastCharacters) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastCharacters, lastCharacters)) &&
+            (identical(other.presentmentAmountUsed, presentmentAmountUsed) ||
+                const DeepCollectionEquality().equals(
+                    other.presentmentAmountUsed, presentmentAmountUsed)));
   }
 
   @override
@@ -198,7 +258,9 @@ class _$_AppliedGiftCards extends _AppliedGiftCards {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(amountUsedV2) ^
       const DeepCollectionEquality().hash(balanceV2) ^
-      const DeepCollectionEquality().hash(id);
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(lastCharacters) ^
+      const DeepCollectionEquality().hash(presentmentAmountUsed);
 
   @JsonKey(ignore: true)
   @override
@@ -215,7 +277,9 @@ abstract class _AppliedGiftCards extends AppliedGiftCards {
   factory _AppliedGiftCards(
       {required PriceV2 amountUsedV2,
       required PriceV2 balanceV2,
-      required String id}) = _$_AppliedGiftCards;
+      required String id,
+      required String lastCharacters,
+      required PriceV2 presentmentAmountUsed}) = _$_AppliedGiftCards;
   _AppliedGiftCards._() : super._();
 
   factory _AppliedGiftCards.fromJson(Map<String, dynamic> json) =
@@ -227,6 +291,10 @@ abstract class _AppliedGiftCards extends AppliedGiftCards {
   PriceV2 get balanceV2 => throw _privateConstructorUsedError;
   @override
   String get id => throw _privateConstructorUsedError;
+  @override
+  String get lastCharacters => throw _privateConstructorUsedError;
+  @override
+  PriceV2 get presentmentAmountUsed => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppliedGiftCardsCopyWith<_AppliedGiftCards> get copyWith =>
