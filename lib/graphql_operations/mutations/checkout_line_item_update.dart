@@ -15,6 +15,11 @@ mutation checkoutLineItemsUpdate($lineItems: [CheckoutLineItemInput!]!, $checkou
           currencyCode
         }
         id
+        lastCharacters
+        presentmentAmountUsed {
+          amount
+          currencyCode
+        }
       }
       requiresShipping
       shippingLine {

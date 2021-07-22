@@ -20,6 +20,11 @@ mutation checkoutDiscountCodeApply($checkoutId : ID!, $discountCode : String!) {
           currencyCode
         }
         id
+        lastCharacters
+        presentmentAmountUsed {
+          amount
+          currencyCode
+        }
       }
       requiresShipping
       shippingLine {

@@ -20,6 +20,11 @@ mutation checkoutGiftCardsAppend($checkoutId : ID!, $giftCardCodes : [String!]!)
           currencyCode
         }
         id
+        lastCharacters
+        presentmentAmountUsed {
+          amount
+          currencyCode
+        }
       }
       requiresShipping
       shippingLine {

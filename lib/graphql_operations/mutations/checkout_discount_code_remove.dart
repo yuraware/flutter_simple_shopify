@@ -20,6 +20,11 @@ mutation checkoutDiscountCodeRemove($checkoutId : ID!) {
           currencyCode
         }
         id
+        lastCharacters
+        presentmentAmountUsed {
+          amount
+          currencyCode
+        }
       }
       requiresShipping
       shippingLine {

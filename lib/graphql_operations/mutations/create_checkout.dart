@@ -20,6 +20,11 @@ mutation checkoutCreate($input: CheckoutCreateInput!) {
           currencyCode
         }
         id
+        lastCharacters
+        presentmentAmountUsed {
+          amount
+          currencyCode
+        }
       }
       requiresShipping
       shippingLine {

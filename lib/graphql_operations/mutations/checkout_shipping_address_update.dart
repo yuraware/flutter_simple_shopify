@@ -15,6 +15,11 @@ mutation checkoutShippingAddressUpdate($checkoutId : ID!, $address1 : String, $a
           currencyCode
         }
         id
+        lastCharacters
+        presentmentAmountUsed {
+          amount
+          currencyCode
+        }
       }
       requiresShipping
       shippingLine {
