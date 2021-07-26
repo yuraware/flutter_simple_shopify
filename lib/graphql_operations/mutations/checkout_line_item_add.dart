@@ -110,6 +110,10 @@ mutation checkoutLineItemsAdd($lineItems: [CheckoutLineItemInput!]!, $checkoutId
         amount
         currencyCode
       }
+      lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
       orderStatusUrl
       order {
         id

@@ -134,6 +134,10 @@ mutation checkoutDiscountCodeApply($checkoutId : ID!, $discountCode : String!) {
         amount
         currencyCode
       }
+       lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
       orderStatusUrl
       order {
         id

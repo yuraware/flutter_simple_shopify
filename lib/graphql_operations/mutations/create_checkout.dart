@@ -134,6 +134,10 @@ mutation checkoutCreate($input: CheckoutCreateInput!) {
         amount
         currencyCode
       }
+       lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
       orderStatusUrl
       order {
         id

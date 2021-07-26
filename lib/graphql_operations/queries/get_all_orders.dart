@@ -80,6 +80,10 @@ customer(customerAccessToken: $accessToken) {
             amount
             currencyCode
           }
+           lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
           totalPriceV2 {
             amount
             currencyCode

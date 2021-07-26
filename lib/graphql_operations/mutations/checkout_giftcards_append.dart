@@ -134,6 +134,10 @@ mutation checkoutGiftCardsAppend($checkoutId : ID!, $giftCardCodes : [String!]!)
         amount
         currencyCode
       }
+       lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
       orderStatusUrl
       order {
         id

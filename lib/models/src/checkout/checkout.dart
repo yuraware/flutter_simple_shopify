@@ -29,6 +29,7 @@ class Checkout with _$Checkout {
     required bool taxesIncluded,
     required bool taxExempt,
     required PriceV2 subtotalPriceV2,
+    required PriceV2 lineItemSubtotalPrice,
     required bool requiresShipping,
     required List<AppliedGiftCards> appliedGiftCards,
     @JsonKey(fromJson: JsonHelper.discountApplications)

@@ -140,6 +140,10 @@ query($id: ID!){
         amount
         currencyCode
       }
+       lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
       orderStatusUrl
       order {
         id

@@ -128,6 +128,10 @@ mutation checkoutCompleteWithTokenizedPaymentV2($checkoutId: ID!, $payment: Toke
       }
       taxesIncluded
       taxExempt
+      lineItemsSubtotalPrice {
+        amount
+        currencyCode
+      }
       subtotalPriceV2 {
         amount
         currencyCode
