@@ -25,8 +25,8 @@ _$_Checkout _$_$_CheckoutFromJson(Map<String, dynamic> json) {
     taxExempt: json['taxExempt'] as bool,
     subtotalPriceV2:
         PriceV2.fromJson(json['subtotalPriceV2'] as Map<String, dynamic>),
-    lineItemSubtotalPrice:
-        PriceV2.fromJson(json['lineItemSubtotalPrice'] as Map<String, dynamic>),
+    lineItemsSubtotalPrice: PriceV2.fromJson(
+        json['lineItemsSubtotalPrice'] as Map<String, dynamic>),
     requiresShipping: json['requiresShipping'] as bool,
     appliedGiftCards: (json['appliedGiftCards'] as List<dynamic>)
         .map((e) => AppliedGiftCards.fromJson(e as Map<String, dynamic>))
@@ -67,7 +67,7 @@ Map<String, dynamic> _$_$_CheckoutToJson(_$_Checkout instance) =>
       'taxesIncluded': instance.taxesIncluded,
       'taxExempt': instance.taxExempt,
       'subtotalPriceV2': instance.subtotalPriceV2,
-      'lineItemSubtotalPrice': instance.lineItemSubtotalPrice,
+      'lineItemsSubtotalPrice': instance.lineItemsSubtotalPrice,
       'requiresShipping': instance.requiresShipping,
       'appliedGiftCards': instance.appliedGiftCards,
       'discountApplications': instance.discountApplications,

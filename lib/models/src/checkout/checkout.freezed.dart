@@ -32,7 +32,7 @@ class _$CheckoutTearOff {
       required bool taxesIncluded,
       required bool taxExempt,
       required PriceV2 subtotalPriceV2,
-      required PriceV2 lineItemSubtotalPrice,
+      required PriceV2 lineItemsSubtotalPrice,
       required bool requiresShipping,
       required List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
@@ -61,7 +61,7 @@ class _$CheckoutTearOff {
       taxesIncluded: taxesIncluded,
       taxExempt: taxExempt,
       subtotalPriceV2: subtotalPriceV2,
-      lineItemSubtotalPrice: lineItemSubtotalPrice,
+      lineItemsSubtotalPrice: lineItemsSubtotalPrice,
       requiresShipping: requiresShipping,
       appliedGiftCards: appliedGiftCards,
       discountApplications: discountApplications,
@@ -101,7 +101,7 @@ mixin _$Checkout {
   bool get taxesIncluded => throw _privateConstructorUsedError;
   bool get taxExempt => throw _privateConstructorUsedError;
   PriceV2 get subtotalPriceV2 => throw _privateConstructorUsedError;
-  PriceV2 get lineItemSubtotalPrice => throw _privateConstructorUsedError;
+  PriceV2 get lineItemsSubtotalPrice => throw _privateConstructorUsedError;
   bool get requiresShipping => throw _privateConstructorUsedError;
   List<AppliedGiftCards> get appliedGiftCards =>
       throw _privateConstructorUsedError;
@@ -143,7 +143,7 @@ abstract class $CheckoutCopyWith<$Res> {
       bool taxesIncluded,
       bool taxExempt,
       PriceV2 subtotalPriceV2,
-      PriceV2 lineItemSubtotalPrice,
+      PriceV2 lineItemsSubtotalPrice,
       bool requiresShipping,
       List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
@@ -166,7 +166,7 @@ abstract class $CheckoutCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalPriceV2;
   $PriceV2CopyWith<$Res> get paymentDueV2;
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
-  $PriceV2CopyWith<$Res> get lineItemSubtotalPrice;
+  $PriceV2CopyWith<$Res> get lineItemsSubtotalPrice;
   $OrderCopyWith<$Res>? get order;
   $MailingAddressCopyWith<$Res>? get shippingAddress;
   $ShippingRatesCopyWith<$Res>? get shippingLine;
@@ -193,7 +193,7 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
     Object? taxesIncluded = freezed,
     Object? taxExempt = freezed,
     Object? subtotalPriceV2 = freezed,
-    Object? lineItemSubtotalPrice = freezed,
+    Object? lineItemsSubtotalPrice = freezed,
     Object? requiresShipping = freezed,
     Object? appliedGiftCards = freezed,
     Object? discountApplications = freezed,
@@ -254,9 +254,9 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
           ? _value.subtotalPriceV2
           : subtotalPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      lineItemSubtotalPrice: lineItemSubtotalPrice == freezed
-          ? _value.lineItemSubtotalPrice
-          : lineItemSubtotalPrice // ignore: cast_nullable_to_non_nullable
+      lineItemsSubtotalPrice: lineItemsSubtotalPrice == freezed
+          ? _value.lineItemsSubtotalPrice
+          : lineItemsSubtotalPrice // ignore: cast_nullable_to_non_nullable
               as PriceV2,
       requiresShipping: requiresShipping == freezed
           ? _value.requiresShipping
@@ -358,9 +358,9 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
   }
 
   @override
-  $PriceV2CopyWith<$Res> get lineItemSubtotalPrice {
-    return $PriceV2CopyWith<$Res>(_value.lineItemSubtotalPrice, (value) {
-      return _then(_value.copyWith(lineItemSubtotalPrice: value));
+  $PriceV2CopyWith<$Res> get lineItemsSubtotalPrice {
+    return $PriceV2CopyWith<$Res>(_value.lineItemsSubtotalPrice, (value) {
+      return _then(_value.copyWith(lineItemsSubtotalPrice: value));
     });
   }
 
@@ -415,7 +415,7 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
       bool taxesIncluded,
       bool taxExempt,
       PriceV2 subtotalPriceV2,
-      PriceV2 lineItemSubtotalPrice,
+      PriceV2 lineItemsSubtotalPrice,
       bool requiresShipping,
       List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
@@ -444,7 +444,7 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
   @override
   $PriceV2CopyWith<$Res> get subtotalPriceV2;
   @override
-  $PriceV2CopyWith<$Res> get lineItemSubtotalPrice;
+  $PriceV2CopyWith<$Res> get lineItemsSubtotalPrice;
   @override
   $OrderCopyWith<$Res>? get order;
   @override
@@ -475,7 +475,7 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
     Object? taxesIncluded = freezed,
     Object? taxExempt = freezed,
     Object? subtotalPriceV2 = freezed,
-    Object? lineItemSubtotalPrice = freezed,
+    Object? lineItemsSubtotalPrice = freezed,
     Object? requiresShipping = freezed,
     Object? appliedGiftCards = freezed,
     Object? discountApplications = freezed,
@@ -536,9 +536,9 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
           ? _value.subtotalPriceV2
           : subtotalPriceV2 // ignore: cast_nullable_to_non_nullable
               as PriceV2,
-      lineItemSubtotalPrice: lineItemSubtotalPrice == freezed
-          ? _value.lineItemSubtotalPrice
-          : lineItemSubtotalPrice // ignore: cast_nullable_to_non_nullable
+      lineItemsSubtotalPrice: lineItemsSubtotalPrice == freezed
+          ? _value.lineItemsSubtotalPrice
+          : lineItemsSubtotalPrice // ignore: cast_nullable_to_non_nullable
               as PriceV2,
       requiresShipping: requiresShipping == freezed
           ? _value.requiresShipping
@@ -615,7 +615,7 @@ class _$_Checkout extends _Checkout {
       required this.taxesIncluded,
       required this.taxExempt,
       required this.subtotalPriceV2,
-      required this.lineItemSubtotalPrice,
+      required this.lineItemsSubtotalPrice,
       required this.requiresShipping,
       required this.appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
@@ -660,7 +660,7 @@ class _$_Checkout extends _Checkout {
   @override
   final PriceV2 subtotalPriceV2;
   @override
-  final PriceV2 lineItemSubtotalPrice;
+  final PriceV2 lineItemsSubtotalPrice;
   @override
   final bool requiresShipping;
   @override
@@ -694,7 +694,7 @@ class _$_Checkout extends _Checkout {
 
   @override
   String toString() {
-    return 'Checkout(id: $id, ready: $ready, availableShippingRates: $availableShippingRates, createdAt: $createdAt, currencyCode: $currencyCode, totalTaxV2: $totalTaxV2, totalPriceV2: $totalPriceV2, paymentDueV2: $paymentDueV2, taxesIncluded: $taxesIncluded, taxExempt: $taxExempt, subtotalPriceV2: $subtotalPriceV2, lineItemSubtotalPrice: $lineItemSubtotalPrice, requiresShipping: $requiresShipping, appliedGiftCards: $appliedGiftCards, discountApplications: $discountApplications, lineItems: $lineItems, order: $order, orderStatusUrl: $orderStatusUrl, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, shippingAddress: $shippingAddress, shippingLine: $shippingLine, email: $email, completedAt: $completedAt, note: $note, webUrl: $webUrl, updatedAt: $updatedAt)';
+    return 'Checkout(id: $id, ready: $ready, availableShippingRates: $availableShippingRates, createdAt: $createdAt, currencyCode: $currencyCode, totalTaxV2: $totalTaxV2, totalPriceV2: $totalPriceV2, paymentDueV2: $paymentDueV2, taxesIncluded: $taxesIncluded, taxExempt: $taxExempt, subtotalPriceV2: $subtotalPriceV2, lineItemsSubtotalPrice: $lineItemsSubtotalPrice, requiresShipping: $requiresShipping, appliedGiftCards: $appliedGiftCards, discountApplications: $discountApplications, lineItems: $lineItems, order: $order, orderStatusUrl: $orderStatusUrl, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, shippingAddress: $shippingAddress, shippingLine: $shippingLine, email: $email, completedAt: $completedAt, note: $note, webUrl: $webUrl, updatedAt: $updatedAt)';
   }
 
   @override
@@ -732,9 +732,9 @@ class _$_Checkout extends _Checkout {
             (identical(other.subtotalPriceV2, subtotalPriceV2) ||
                 const DeepCollectionEquality()
                     .equals(other.subtotalPriceV2, subtotalPriceV2)) &&
-            (identical(other.lineItemSubtotalPrice, lineItemSubtotalPrice) ||
+            (identical(other.lineItemsSubtotalPrice, lineItemsSubtotalPrice) ||
                 const DeepCollectionEquality().equals(
-                    other.lineItemSubtotalPrice, lineItemSubtotalPrice)) &&
+                    other.lineItemsSubtotalPrice, lineItemsSubtotalPrice)) &&
             (identical(other.requiresShipping, requiresShipping) ||
                 const DeepCollectionEquality()
                     .equals(other.requiresShipping, requiresShipping)) &&
@@ -784,7 +784,7 @@ class _$_Checkout extends _Checkout {
       const DeepCollectionEquality().hash(taxesIncluded) ^
       const DeepCollectionEquality().hash(taxExempt) ^
       const DeepCollectionEquality().hash(subtotalPriceV2) ^
-      const DeepCollectionEquality().hash(lineItemSubtotalPrice) ^
+      const DeepCollectionEquality().hash(lineItemsSubtotalPrice) ^
       const DeepCollectionEquality().hash(requiresShipping) ^
       const DeepCollectionEquality().hash(appliedGiftCards) ^
       const DeepCollectionEquality().hash(discountApplications) ^
@@ -824,7 +824,7 @@ abstract class _Checkout extends Checkout {
       required bool taxesIncluded,
       required bool taxExempt,
       required PriceV2 subtotalPriceV2,
-      required PriceV2 lineItemSubtotalPrice,
+      required PriceV2 lineItemsSubtotalPrice,
       required bool requiresShipping,
       required List<AppliedGiftCards> appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
@@ -869,7 +869,7 @@ abstract class _Checkout extends Checkout {
   @override
   PriceV2 get subtotalPriceV2 => throw _privateConstructorUsedError;
   @override
-  PriceV2 get lineItemSubtotalPrice => throw _privateConstructorUsedError;
+  PriceV2 get lineItemsSubtotalPrice => throw _privateConstructorUsedError;
   @override
   bool get requiresShipping => throw _privateConstructorUsedError;
   @override
