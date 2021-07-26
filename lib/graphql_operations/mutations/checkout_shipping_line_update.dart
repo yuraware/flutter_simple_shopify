@@ -63,6 +63,25 @@ mutation checkoutShippingLineUpdate($checkoutId: ID!, $shippingRateHandle: Strin
       completedAt
       createdAt
       currencyCode
+      discountApplications(first: 10) {
+        edges{
+          node {
+            allocationMethod
+            targetSelection
+            targetType
+             value {
+              __typename
+              ... on PricingPercentageValue {
+                percentage
+              }
+              ... on MoneyV2 {
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
+      }
       lineItems(first: 10) {
         edges {
           node {
