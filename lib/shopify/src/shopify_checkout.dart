@@ -220,6 +220,57 @@ class ShopifyCheckout with ShopifyError {
             const {}));
   }
 
+  /// Updates the shipping address on given [checkoutId]
+  Future<Checkout?> completeCheckoutWithTokenizedPaymentV3({
+    required String checkoutId,
+    required PriceV2 price,
+    required Address billingAddress,
+    required String impotencyKey,
+    required String tokenizedPayment,
+    required String type,
+    bool test = false,
+    bool deleteThisPartOfCache = false,
+  }) async {
+    final MutationOptions _options = MutationOptions(
+      document: gql(completeCheckoutWithTokenV3),
+      variables: {
+        'checkoutId': checkoutId,
+        "payment": {
+          "paymentAmount": {
+            "amount": price.amount,
+            "currencyCode": price.currencyCode
+          },
+          "idempotencyKey": impotencyKey,
+          "billingAddress": {
+            "firstName": billingAddress.firstName,
+            "lastName": billingAddress.lastName,
+            "address1": billingAddress.address1,
+            "province": billingAddress.province,
+            "country": billingAddress.country,
+            "city": billingAddress.city,
+            "zip": billingAddress.zip
+          },
+          "paymentData": tokenizedPayment,
+          "type": type
+        }
+      },
+    );
+    final QueryResult result = await _graphQLClient!.mutate(_options);
+    checkForError(
+      result,
+      key: 'checkoutCompleteWithTokenizedPaymentV2',
+      errorKey: 'checkoutUserErrors',
+    );
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+
+    return Checkout.fromJson(
+        ((result.data!['checkoutCompleteWithTokenizedPaymentV2'] ??
+                const {})['checkout'] ??
+            const {}));
+  }
+
   /// Helper method for transforming a list of variant ids into a List Of Map<String, dynamic> which looks like this:
   ///
   /// [{"quantity":AMOUNT,"variantId":"YOUR_VARIANT_ID"}]
