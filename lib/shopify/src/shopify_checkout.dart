@@ -258,7 +258,7 @@ class ShopifyCheckout with ShopifyError {
     final QueryResult result = await _graphQLClient!.mutate(_options);
     checkForError(
       result,
-      key: 'checkoutCompleteWithTokenizedPaymentV2',
+      key: 'checkoutCompleteWithTokenizedPaymentV3',
       errorKey: 'checkoutUserErrors',
     );
     if (deleteThisPartOfCache) {
@@ -266,7 +266,7 @@ class ShopifyCheckout with ShopifyError {
     }
 
     return Checkout.fromJson(
-        ((result.data!['checkoutCompleteWithTokenizedPaymentV2'] ??
+        ((result.data!['checkoutCompleteWithTokenizedPaymentV3'] ??
                 const {})['checkout'] ??
             const {}));
   }
