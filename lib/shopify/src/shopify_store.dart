@@ -348,6 +348,7 @@ class ShopifyStore with ShopifyError {
       bool reverse = false}) async {
     String? cursor = startCursor;
     final WatchQueryOptions _options = WatchQueryOptions(
+      
         document: gql(getXProductsAfterCursorWithinCollectionQuery),
         variables: {
           'id': id,

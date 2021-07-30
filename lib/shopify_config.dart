@@ -26,12 +26,9 @@ class ShopifyConfig {
   /// Sets the config.
   ///
   /// IMPORTANT: preferably call this inside the main function or at least before instantiating other Shopify classes.
-  static void setConfig(
-    String storefrontAccessToken,
-    String storeUrl,
-    String storefrontApiVersion, {
-    Store? cacheStore,
-  }) {
+  static void setConfig(String storefrontAccessToken, String storeUrl,
+      String storefrontApiVersion,
+      {Store? cacheStore, bool allowPartialData = false}) {
     _storefrontAccessToken = storefrontAccessToken;
     _storeUrl = storeUrl;
     _storefrontApiVersion = storefrontApiVersion;
@@ -44,6 +41,9 @@ class ShopifyConfig {
         },
       ),
       cache: GraphQLCache(
+        partialDataPolicy: allowPartialData
+            ? PartialDataCachePolicy.accept
+            : PartialDataCachePolicy.acceptForOptimisticData,
         store: _cacheStore,
       ),
     );
