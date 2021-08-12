@@ -402,19 +402,26 @@ class ShopifyStore with ShopifyError {
   ///
   /// Gets [limit] amount of [Product] from the [query] search, sorted by [sortKey].
   Future<List<Product>?> getXProductsOnQueryAfterCursor(
-      String query, int limit, String cursor,
+      String query, int limit, String? cursor,
       {SortKeyProduct? sortKey,
       bool deleteThisPartOfCache = false,
       bool reverse = false}) async {
     final WatchQueryOptions _options = WatchQueryOptions(
         document: gql(getXProductsOnQueryAfterCursorQuery),
-        variables: {
-          'cursor': cursor,
-          'limit': limit,
-          'sortKey': sortKey?.parseToString(),
-          'query': query,
-          'reverse': reverse
-        });
+        variables: cursor == null
+            ? {
+                'limit': limit,
+                'sortKey': sortKey?.parseToString(),
+                'query': query,
+                'reverse': reverse
+              }
+            : {
+                'cursor': cursor,
+                'limit': limit,
+                'sortKey': sortKey?.parseToString(),
+                'query': query,
+                'reverse': reverse
+              });
     final QueryResult result =
         await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);
