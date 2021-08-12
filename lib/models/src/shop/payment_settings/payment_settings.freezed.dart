@@ -26,7 +26,7 @@ class _$PaymentSettingsTearOff {
       String? countryCode,
       String? currencyCode,
       List<String>? enabledPresentmentCurrencies,
-      String? shopifyPaymentAccountId,
+      String? shopifyPaymentsAccountId,
       List<String>? supportedDigitalWallets}) {
     return _PaymentSettings(
       acceptedCardBrands: acceptedCardBrands,
@@ -34,7 +34,7 @@ class _$PaymentSettingsTearOff {
       countryCode: countryCode,
       currencyCode: currencyCode,
       enabledPresentmentCurrencies: enabledPresentmentCurrencies,
-      shopifyPaymentAccountId: shopifyPaymentAccountId,
+      shopifyPaymentsAccountId: shopifyPaymentsAccountId,
       supportedDigitalWallets: supportedDigitalWallets,
     );
   }
@@ -55,7 +55,7 @@ mixin _$PaymentSettings {
   String? get currencyCode => throw _privateConstructorUsedError;
   List<String>? get enabledPresentmentCurrencies =>
       throw _privateConstructorUsedError;
-  String? get shopifyPaymentAccountId => throw _privateConstructorUsedError;
+  String? get shopifyPaymentsAccountId => throw _privateConstructorUsedError;
   List<String>? get supportedDigitalWallets =>
       throw _privateConstructorUsedError;
 
@@ -76,7 +76,7 @@ abstract class $PaymentSettingsCopyWith<$Res> {
       String? countryCode,
       String? currencyCode,
       List<String>? enabledPresentmentCurrencies,
-      String? shopifyPaymentAccountId,
+      String? shopifyPaymentsAccountId,
       List<String>? supportedDigitalWallets});
 }
 
@@ -96,7 +96,7 @@ class _$PaymentSettingsCopyWithImpl<$Res>
     Object? countryCode = freezed,
     Object? currencyCode = freezed,
     Object? enabledPresentmentCurrencies = freezed,
-    Object? shopifyPaymentAccountId = freezed,
+    Object? shopifyPaymentsAccountId = freezed,
     Object? supportedDigitalWallets = freezed,
   }) {
     return _then(_value.copyWith(
@@ -120,9 +120,9 @@ class _$PaymentSettingsCopyWithImpl<$Res>
           ? _value.enabledPresentmentCurrencies
           : enabledPresentmentCurrencies // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      shopifyPaymentAccountId: shopifyPaymentAccountId == freezed
-          ? _value.shopifyPaymentAccountId
-          : shopifyPaymentAccountId // ignore: cast_nullable_to_non_nullable
+      shopifyPaymentsAccountId: shopifyPaymentsAccountId == freezed
+          ? _value.shopifyPaymentsAccountId
+          : shopifyPaymentsAccountId // ignore: cast_nullable_to_non_nullable
               as String?,
       supportedDigitalWallets: supportedDigitalWallets == freezed
           ? _value.supportedDigitalWallets
@@ -145,7 +145,7 @@ abstract class _$PaymentSettingsCopyWith<$Res>
       String? countryCode,
       String? currencyCode,
       List<String>? enabledPresentmentCurrencies,
-      String? shopifyPaymentAccountId,
+      String? shopifyPaymentsAccountId,
       List<String>? supportedDigitalWallets});
 }
 
@@ -167,7 +167,7 @@ class __$PaymentSettingsCopyWithImpl<$Res>
     Object? countryCode = freezed,
     Object? currencyCode = freezed,
     Object? enabledPresentmentCurrencies = freezed,
-    Object? shopifyPaymentAccountId = freezed,
+    Object? shopifyPaymentsAccountId = freezed,
     Object? supportedDigitalWallets = freezed,
   }) {
     return _then(_PaymentSettings(
@@ -191,9 +191,9 @@ class __$PaymentSettingsCopyWithImpl<$Res>
           ? _value.enabledPresentmentCurrencies
           : enabledPresentmentCurrencies // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      shopifyPaymentAccountId: shopifyPaymentAccountId == freezed
-          ? _value.shopifyPaymentAccountId
-          : shopifyPaymentAccountId // ignore: cast_nullable_to_non_nullable
+      shopifyPaymentsAccountId: shopifyPaymentsAccountId == freezed
+          ? _value.shopifyPaymentsAccountId
+          : shopifyPaymentsAccountId // ignore: cast_nullable_to_non_nullable
               as String?,
       supportedDigitalWallets: supportedDigitalWallets == freezed
           ? _value.supportedDigitalWallets
@@ -212,7 +212,7 @@ class _$_PaymentSettings implements _PaymentSettings {
       this.countryCode,
       this.currencyCode,
       this.enabledPresentmentCurrencies,
-      this.shopifyPaymentAccountId,
+      this.shopifyPaymentsAccountId,
       this.supportedDigitalWallets});
 
   factory _$_PaymentSettings.fromJson(Map<String, dynamic> json) =>
@@ -229,13 +229,13 @@ class _$_PaymentSettings implements _PaymentSettings {
   @override
   final List<String>? enabledPresentmentCurrencies;
   @override
-  final String? shopifyPaymentAccountId;
+  final String? shopifyPaymentsAccountId;
   @override
   final List<String>? supportedDigitalWallets;
 
   @override
   String toString() {
-    return 'PaymentSettings(acceptedCardBrands: $acceptedCardBrands, cardVaultUrl: $cardVaultUrl, countryCode: $countryCode, currencyCode: $currencyCode, enabledPresentmentCurrencies: $enabledPresentmentCurrencies, shopifyPaymentAccountId: $shopifyPaymentAccountId, supportedDigitalWallets: $supportedDigitalWallets)';
+    return 'PaymentSettings(acceptedCardBrands: $acceptedCardBrands, cardVaultUrl: $cardVaultUrl, countryCode: $countryCode, currencyCode: $currencyCode, enabledPresentmentCurrencies: $enabledPresentmentCurrencies, shopifyPaymentsAccountId: $shopifyPaymentsAccountId, supportedDigitalWallets: $supportedDigitalWallets)';
   }
 
   @override
@@ -260,9 +260,10 @@ class _$_PaymentSettings implements _PaymentSettings {
                     other.enabledPresentmentCurrencies,
                     enabledPresentmentCurrencies)) &&
             (identical(
-                    other.shopifyPaymentAccountId, shopifyPaymentAccountId) ||
+                    other.shopifyPaymentsAccountId, shopifyPaymentsAccountId) ||
                 const DeepCollectionEquality().equals(
-                    other.shopifyPaymentAccountId, shopifyPaymentAccountId)) &&
+                    other.shopifyPaymentsAccountId,
+                    shopifyPaymentsAccountId)) &&
             (identical(
                     other.supportedDigitalWallets, supportedDigitalWallets) ||
                 const DeepCollectionEquality().equals(
@@ -277,7 +278,7 @@ class _$_PaymentSettings implements _PaymentSettings {
       const DeepCollectionEquality().hash(countryCode) ^
       const DeepCollectionEquality().hash(currencyCode) ^
       const DeepCollectionEquality().hash(enabledPresentmentCurrencies) ^
-      const DeepCollectionEquality().hash(shopifyPaymentAccountId) ^
+      const DeepCollectionEquality().hash(shopifyPaymentsAccountId) ^
       const DeepCollectionEquality().hash(supportedDigitalWallets);
 
   @JsonKey(ignore: true)
@@ -298,7 +299,7 @@ abstract class _PaymentSettings implements PaymentSettings {
       String? countryCode,
       String? currencyCode,
       List<String>? enabledPresentmentCurrencies,
-      String? shopifyPaymentAccountId,
+      String? shopifyPaymentsAccountId,
       List<String>? supportedDigitalWallets}) = _$_PaymentSettings;
 
   factory _PaymentSettings.fromJson(Map<String, dynamic> json) =
@@ -316,7 +317,7 @@ abstract class _PaymentSettings implements PaymentSettings {
   List<String>? get enabledPresentmentCurrencies =>
       throw _privateConstructorUsedError;
   @override
-  String? get shopifyPaymentAccountId => throw _privateConstructorUsedError;
+  String? get shopifyPaymentsAccountId => throw _privateConstructorUsedError;
   @override
   List<String>? get supportedDigitalWallets =>
       throw _privateConstructorUsedError;

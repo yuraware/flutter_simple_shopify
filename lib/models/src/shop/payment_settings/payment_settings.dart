@@ -11,7 +11,7 @@ class PaymentSettings with _$PaymentSettings {
     String? countryCode,
     String? currencyCode,
     List<String>? enabledPresentmentCurrencies,
-    String? shopifyPaymentAccountId,
+    String? shopifyPaymentsAccountId,
     List<String>? supportedDigitalWallets,
   }) = _PaymentSettings;
 
