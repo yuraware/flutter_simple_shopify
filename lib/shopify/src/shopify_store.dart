@@ -213,7 +213,7 @@ class ShopifyStore with ShopifyError {
     if (deleteThisPartOfCache) {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
-    return Shop.fromJson(result.data!);
+    return Shop.fromJson(result.data!['shop']);
   }
 
   /// Returns a collection by handle.
@@ -348,7 +348,6 @@ class ShopifyStore with ShopifyError {
       bool reverse = false}) async {
     String? cursor = startCursor;
     final WatchQueryOptions _options = WatchQueryOptions(
-      
         document: gql(getXProductsAfterCursorWithinCollectionQuery),
         variables: {
           'id': id,
