@@ -34,7 +34,7 @@ class _$OrderTearOff {
       required PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      LineItemsOrder? lineItems,
+      List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor}) {
@@ -82,7 +82,7 @@ mixin _$Order {
   PriceV2 get totalTaxV2 => throw _privateConstructorUsedError;
   String? get currencyCode => throw _privateConstructorUsedError;
   String? get customerUrl => throw _privateConstructorUsedError;
-  LineItemsOrder? get lineItems => throw _privateConstructorUsedError;
+  List<LineItemOrder>? get lineItems => throw _privateConstructorUsedError;
   PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -110,7 +110,7 @@ abstract class $OrderCopyWith<$Res> {
       PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      LineItemsOrder? lineItems,
+      List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor});
@@ -120,7 +120,6 @@ abstract class $OrderCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalPriceV2;
   $PriceV2CopyWith<$Res> get totalShippingPriceV2;
   $PriceV2CopyWith<$Res> get totalTaxV2;
-  $LineItemsOrderCopyWith<$Res>? get lineItems;
   $PriceV2CopyWith<$Res>? get totalRefundedV2;
 }
 
@@ -208,7 +207,7 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
       lineItems: lineItems == freezed
           ? _value.lineItems
           : lineItems // ignore: cast_nullable_to_non_nullable
-              as LineItemsOrder?,
+              as List<LineItemOrder>?,
       totalRefundedV2: totalRefundedV2 == freezed
           ? _value.totalRefundedV2
           : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
@@ -260,17 +259,6 @@ class _$OrderCopyWithImpl<$Res> implements $OrderCopyWith<$Res> {
   }
 
   @override
-  $LineItemsOrderCopyWith<$Res>? get lineItems {
-    if (_value.lineItems == null) {
-      return null;
-    }
-
-    return $LineItemsOrderCopyWith<$Res>(_value.lineItems!, (value) {
-      return _then(_value.copyWith(lineItems: value));
-    });
-  }
-
-  @override
   $PriceV2CopyWith<$Res>? get totalRefundedV2 {
     if (_value.totalRefundedV2 == null) {
       return null;
@@ -301,7 +289,7 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      LineItemsOrder? lineItems,
+      List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor});
@@ -316,8 +304,6 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
   $PriceV2CopyWith<$Res> get totalShippingPriceV2;
   @override
   $PriceV2CopyWith<$Res> get totalTaxV2;
-  @override
-  $LineItemsOrderCopyWith<$Res>? get lineItems;
   @override
   $PriceV2CopyWith<$Res>? get totalRefundedV2;
 }
@@ -407,7 +393,7 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
       lineItems: lineItems == freezed
           ? _value.lineItems
           : lineItems // ignore: cast_nullable_to_non_nullable
-              as LineItemsOrder?,
+              as List<LineItemOrder>?,
       totalRefundedV2: totalRefundedV2 == freezed
           ? _value.totalRefundedV2
           : totalRefundedV2 // ignore: cast_nullable_to_non_nullable
@@ -477,7 +463,7 @@ class _$_Order extends _Order {
   @override
   final String? customerUrl;
   @override
-  final LineItemsOrder? lineItems;
+  final List<LineItemOrder>? lineItems;
   @override
   final PriceV2? totalRefundedV2;
   @override
@@ -589,7 +575,7 @@ abstract class _Order extends Order {
       required PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      LineItemsOrder? lineItems,
+      List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor}) = _$_Order;
@@ -624,7 +610,7 @@ abstract class _Order extends Order {
   @override
   String? get customerUrl => throw _privateConstructorUsedError;
   @override
-  LineItemsOrder? get lineItems => throw _privateConstructorUsedError;
+  List<LineItemOrder>? get lineItems => throw _privateConstructorUsedError;
   @override
   PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
   @override
