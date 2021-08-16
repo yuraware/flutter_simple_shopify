@@ -10,10 +10,6 @@ _$_Order _$_$_OrderFromJson(Map<String, dynamic> json) {
   return _$_Order(
     id: json['id'] as String,
     email: json['email'] as String,
-    currencyCode: json['currencyCode'] as String,
-    customerUrl: json['customerUrl'] as String,
-    lineItems:
-        LineItemsOrder.fromJson(json['lineItems'] as Map<String, dynamic>),
     name: json['name'] as String,
     orderNumber: json['orderNumber'] as int,
     processedAt: json['processedAt'] as String,
@@ -27,6 +23,11 @@ _$_Order _$_$_OrderFromJson(Map<String, dynamic> json) {
     totalShippingPriceV2:
         PriceV2.fromJson(json['totalShippingPriceV2'] as Map<String, dynamic>),
     totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
+    currencyCode: json['currencyCode'] as String?,
+    customerUrl: json['customerUrl'] as String?,
+    lineItems: json['lineItems'] == null
+        ? null
+        : LineItemsOrder.fromJson(json['lineItems'] as Map<String, dynamic>),
     totalRefundedV2: json['totalRefundedV2'] == null
         ? null
         : PriceV2.fromJson(json['totalRefundedV2'] as Map<String, dynamic>),
@@ -38,9 +39,6 @@ _$_Order _$_$_OrderFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
-      'currencyCode': instance.currencyCode,
-      'customerUrl': instance.customerUrl,
-      'lineItems': instance.lineItems,
       'name': instance.name,
       'orderNumber': instance.orderNumber,
       'processedAt': instance.processedAt,
@@ -50,6 +48,9 @@ Map<String, dynamic> _$_$_OrderToJson(_$_Order instance) => <String, dynamic>{
       'totalPriceV2': instance.totalPriceV2,
       'totalShippingPriceV2': instance.totalShippingPriceV2,
       'totalTaxV2': instance.totalTaxV2,
+      'currencyCode': instance.currencyCode,
+      'customerUrl': instance.customerUrl,
+      'lineItems': instance.lineItems,
       'totalRefundedV2': instance.totalRefundedV2,
       'phone': instance.phone,
       'cursor': instance.cursor,

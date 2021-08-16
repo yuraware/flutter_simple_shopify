@@ -12,6 +12,7 @@ import 'package:flutter_simple_shopify/graphql_operations/mutations/create_check
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_requires_shipping.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id_without_shipping_rates.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_information_order.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/checkout/line_item/line_item.dart';
@@ -46,6 +47,7 @@ class ShopifyCheckout with ShopifyError {
   Future<Checkout> getCheckoutInfoQuery(String checkoutId,
       {bool getShippingInfo = true,
       bool withPaymentId = false,
+      bool withOrder = false,
       bool deleteThisPartOfCache = false}) async {
     final WatchQueryOptions _optionsRequireShipping = WatchQueryOptions(
         document: gql(getCheckoutInfoAboutShipping),
@@ -55,13 +57,15 @@ class ShopifyCheckout with ShopifyError {
     QueryResult result = await _graphQLClient!.query(_optionsRequireShipping);
 
     final WatchQueryOptions _options = WatchQueryOptions(
-        document: gql(_requiresShipping(result) == true && getShippingInfo
-            ? withPaymentId
-                ? getCheckoutInfoWithPaymentId
-                : getCheckoutInfo
-            : withPaymentId
-                ? getCheckoutInfoWithPaymentIdWithoutShipping
-                : getCheckoutInfoWithoutShipping),
+        document: withOrder
+            ? gql(getCheckoutInfoWithOrder)
+            : gql(_requiresShipping(result) == true && getShippingInfo
+                ? withPaymentId
+                    ? getCheckoutInfoWithPaymentId
+                    : getCheckoutInfo
+                : withPaymentId
+                    ? getCheckoutInfoWithPaymentIdWithoutShipping
+                    : getCheckoutInfoWithoutShipping),
         variables: {
           'id': checkoutId,
         });
