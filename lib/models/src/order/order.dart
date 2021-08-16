@@ -1,7 +1,6 @@
 import 'package:flutter_simple_shopify/models/src/order/line_item_order/line_item_order.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'shipping_address/shipping_address.dart';
 
 part 'order.freezed.dart';
@@ -25,7 +24,7 @@ class Order with _$Order {
     required PriceV2 totalTaxV2,
     String? currencyCode,
     String? customerUrl,
-    List<LineItemOrder>? lineItems,
+    @JsonKey(fromJson: _getLineItems) List<LineItemOrder>? lineItems,
     PriceV2? totalRefundedV2,
     String? phone,
     String? cursor,
