@@ -35,7 +35,7 @@ class Checkout with _$Checkout {
     @JsonKey(fromJson: JsonHelper.discountApplications)
         required List<DiscountApplication> discountApplications,
     @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lineItems,
-    Order? order,
+    @JsonKey(fromJson: Order.fromGraphJson) Order? order,
     String? orderStatusUrl,
     String? shopifyPaymentsAccountId,
     MailingAddress? shippingAddress,

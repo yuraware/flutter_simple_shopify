@@ -25,8 +25,7 @@ _$_Order _$_$_OrderFromJson(Map<String, dynamic> json) {
     totalTaxV2: PriceV2.fromJson(json['totalTaxV2'] as Map<String, dynamic>),
     currencyCode: json['currencyCode'] as String?,
     customerUrl: json['customerUrl'] as String?,
-    lineItems:
-        JsonHelper.getLineOrderItems(json['lineItems'] as Map<String, dynamic>),
+    lineItems: JsonHelper.getLineOrderItems(json['lineItems']),
     totalRefundedV2: json['totalRefundedV2'] == null
         ? null
         : PriceV2.fromJson(json['totalRefundedV2'] as Map<String, dynamic>),

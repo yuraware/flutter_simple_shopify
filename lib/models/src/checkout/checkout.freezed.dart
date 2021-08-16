@@ -39,7 +39,8 @@ class _$CheckoutTearOff {
           required List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required List<LineItem> lineItems,
-      Order? order,
+      @JsonKey(fromJson: Order.fromGraphJson)
+          Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -110,6 +111,7 @@ mixin _$Checkout {
       throw _privateConstructorUsedError;
   @JsonKey(fromJson: JsonHelper.lineItems)
   List<LineItem> get lineItems => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: Order.fromGraphJson)
   Order? get order => throw _privateConstructorUsedError;
   String? get orderStatusUrl => throw _privateConstructorUsedError;
   String? get shopifyPaymentsAccountId => throw _privateConstructorUsedError;
@@ -150,7 +152,8 @@ abstract class $CheckoutCopyWith<$Res> {
           List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           List<LineItem> lineItems,
-      Order? order,
+      @JsonKey(fromJson: Order.fromGraphJson)
+          Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -422,7 +425,8 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
           List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           List<LineItem> lineItems,
-      Order? order,
+      @JsonKey(fromJson: Order.fromGraphJson)
+          Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -622,7 +626,8 @@ class _$_Checkout extends _Checkout {
           required this.discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required this.lineItems,
-      this.order,
+      @JsonKey(fromJson: Order.fromGraphJson)
+          this.order,
       this.orderStatusUrl,
       this.shopifyPaymentsAccountId,
       this.shippingAddress,
@@ -672,6 +677,7 @@ class _$_Checkout extends _Checkout {
   @JsonKey(fromJson: JsonHelper.lineItems)
   final List<LineItem> lineItems;
   @override
+  @JsonKey(fromJson: Order.fromGraphJson)
   final Order? order;
   @override
   final String? orderStatusUrl;
@@ -831,7 +837,8 @@ abstract class _Checkout extends Checkout {
           required List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
           required List<LineItem> lineItems,
-      Order? order,
+      @JsonKey(fromJson: Order.fromGraphJson)
+          Order? order,
       String? orderStatusUrl,
       String? shopifyPaymentsAccountId,
       MailingAddress? shippingAddress,
@@ -883,6 +890,7 @@ abstract class _Checkout extends Checkout {
   @JsonKey(fromJson: JsonHelper.lineItems)
   List<LineItem> get lineItems => throw _privateConstructorUsedError;
   @override
+  @JsonKey(fromJson: Order.fromGraphJson)
   Order? get order => throw _privateConstructorUsedError;
   @override
   String? get orderStatusUrl => throw _privateConstructorUsedError;
