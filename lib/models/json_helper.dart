@@ -54,7 +54,7 @@ class JsonHelper {
       return json.map((e) => LineItemOrder.fromJson(e)).toList();
     } else if (json['edges'] != null) {
       return (json['edges'] as List)
-          .map((v) => LineItemOrder.fromJson(v))
+          .map((v) => LineItemOrder.fromJson(v['node']))
           .toList();
     }
 
