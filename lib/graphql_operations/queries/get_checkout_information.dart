@@ -5,6 +5,11 @@ query($id: ID!){
       id
       ready
       email
+      checkoutUserErrors {
+        code
+        field
+        message
+      }
       appliedGiftCards {
         amountUsedV2 {
           amount
