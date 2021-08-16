@@ -34,7 +34,9 @@ _$_Checkout _$_$_CheckoutFromJson(Map<String, dynamic> json) {
     discountApplications:
         JsonHelper.discountApplications(json['discountApplications']),
     lineItems: JsonHelper.lineItems(json['lineItems']),
-    order: Order.fromGraphJson(json['order'] as Map<String, dynamic>),
+    order: json['order'] == null
+        ? null
+        : Order.fromJson(json['order'] as Map<String, dynamic>),
     orderStatusUrl: json['orderStatusUrl'] as String?,
     shopifyPaymentsAccountId: json['shopifyPaymentsAccountId'] as String?,
     shippingAddress: json['shippingAddress'] == null
