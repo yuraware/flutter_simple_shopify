@@ -1,4 +1,5 @@
 import 'package:flutter_simple_shopify/models/src/checkout/discount_application/discount_application.dart';
+import 'package:flutter_simple_shopify/models/src/order/line_item_order/line_item_order.dart';
 import 'package:intl/intl.dart';
 
 import 'src/checkout/line_item/line_item.dart';
@@ -44,6 +45,14 @@ class JsonHelper {
                 : json['amount'] is String
                     ? double.parse(json['amount'])
                     : json['amount'];
+  }
+
+  static List<LineItemOrder> getLineOrderItems(Map<String, dynamic> json) {
+    if ((json['node'] ?? const {})['lineItems'] == null) return [];
+    return (((json['node'] ?? const {})['lineItems'] ?? const {})['edges']
+            as List)
+        .map((v) => LineItemOrder.fromJson(v))
+        .toList();
   }
 
   static String chooseRightOrderOnCurrencySymbol(

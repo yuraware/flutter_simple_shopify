@@ -34,7 +34,8 @@ class _$OrderTearOff {
       required PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      @JsonKey(fromJson: _getLineItems) List<LineItemOrder>? lineItems,
+      @JsonKey(fromJson: JsonHelper.getLineOrderItems)
+          List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor}) {
@@ -82,7 +83,7 @@ mixin _$Order {
   PriceV2 get totalTaxV2 => throw _privateConstructorUsedError;
   String? get currencyCode => throw _privateConstructorUsedError;
   String? get customerUrl => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _getLineItems)
+  @JsonKey(fromJson: JsonHelper.getLineOrderItems)
   List<LineItemOrder>? get lineItems => throw _privateConstructorUsedError;
   PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
@@ -111,7 +112,8 @@ abstract class $OrderCopyWith<$Res> {
       PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      @JsonKey(fromJson: _getLineItems) List<LineItemOrder>? lineItems,
+      @JsonKey(fromJson: JsonHelper.getLineOrderItems)
+          List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor});
@@ -290,7 +292,8 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      @JsonKey(fromJson: _getLineItems) List<LineItemOrder>? lineItems,
+      @JsonKey(fromJson: JsonHelper.getLineOrderItems)
+          List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor});
@@ -428,7 +431,7 @@ class _$_Order extends _Order {
       required this.totalTaxV2,
       this.currencyCode,
       this.customerUrl,
-      @JsonKey(fromJson: _getLineItems) this.lineItems,
+      @JsonKey(fromJson: JsonHelper.getLineOrderItems) this.lineItems,
       this.totalRefundedV2,
       this.phone,
       this.cursor})
@@ -464,7 +467,7 @@ class _$_Order extends _Order {
   @override
   final String? customerUrl;
   @override
-  @JsonKey(fromJson: _getLineItems)
+  @JsonKey(fromJson: JsonHelper.getLineOrderItems)
   final List<LineItemOrder>? lineItems;
   @override
   final PriceV2? totalRefundedV2;
@@ -577,7 +580,8 @@ abstract class _Order extends Order {
       required PriceV2 totalTaxV2,
       String? currencyCode,
       String? customerUrl,
-      @JsonKey(fromJson: _getLineItems) List<LineItemOrder>? lineItems,
+      @JsonKey(fromJson: JsonHelper.getLineOrderItems)
+          List<LineItemOrder>? lineItems,
       PriceV2? totalRefundedV2,
       String? phone,
       String? cursor}) = _$_Order;
@@ -612,7 +616,7 @@ abstract class _Order extends Order {
   @override
   String? get customerUrl => throw _privateConstructorUsedError;
   @override
-  @JsonKey(fromJson: _getLineItems)
+  @JsonKey(fromJson: JsonHelper.getLineOrderItems)
   List<LineItemOrder>? get lineItems => throw _privateConstructorUsedError;
   @override
   PriceV2? get totalRefundedV2 => throw _privateConstructorUsedError;
