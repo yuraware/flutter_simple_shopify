@@ -47,12 +47,18 @@ class JsonHelper {
                     : json['amount'];
   }
 
-  static List<LineItemOrder> getLineOrderItems(Map<String, dynamic> json) {
-    if ((json['node'] ?? const {})['lineItems'] == null) return [];
-    return (((json['node'] ?? const {})['lineItems'] ?? const {})['edges']
-            as List)
-        .map((v) => LineItemOrder.fromJson(v))
-        .toList();
+  static List<LineItemOrder> getLineOrderItems(dynamic json) {
+    if (json == null)
+      return [];
+    else if (json is List) {
+      return json.map((e) => LineItemOrder.fromJson(e)).toList();
+    } else if (json['edges'] != null) {
+      return (json['edges'] as List)
+          .map((v) => LineItemOrder.fromJson(v))
+          .toList();
+    }
+
+    return [];
   }
 
   static String chooseRightOrderOnCurrencySymbol(
