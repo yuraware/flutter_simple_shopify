@@ -34,7 +34,7 @@ class _$CheckoutTearOff {
       required PriceV2 subtotalPriceV2,
       required PriceV2 lineItemsSubtotalPrice,
       required bool requiresShipping,
-      required List<AppliedGiftCards> appliedGiftCards,
+      List<AppliedGiftCards>? appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
           required List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
@@ -103,7 +103,7 @@ mixin _$Checkout {
   PriceV2 get subtotalPriceV2 => throw _privateConstructorUsedError;
   PriceV2 get lineItemsSubtotalPrice => throw _privateConstructorUsedError;
   bool get requiresShipping => throw _privateConstructorUsedError;
-  List<AppliedGiftCards> get appliedGiftCards =>
+  List<AppliedGiftCards>? get appliedGiftCards =>
       throw _privateConstructorUsedError;
   @JsonKey(fromJson: JsonHelper.discountApplications)
   List<DiscountApplication> get discountApplications =>
@@ -145,7 +145,7 @@ abstract class $CheckoutCopyWith<$Res> {
       PriceV2 subtotalPriceV2,
       PriceV2 lineItemsSubtotalPrice,
       bool requiresShipping,
-      List<AppliedGiftCards> appliedGiftCards,
+      List<AppliedGiftCards>? appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
           List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
@@ -265,7 +265,7 @@ class _$CheckoutCopyWithImpl<$Res> implements $CheckoutCopyWith<$Res> {
       appliedGiftCards: appliedGiftCards == freezed
           ? _value.appliedGiftCards
           : appliedGiftCards // ignore: cast_nullable_to_non_nullable
-              as List<AppliedGiftCards>,
+              as List<AppliedGiftCards>?,
       discountApplications: discountApplications == freezed
           ? _value.discountApplications
           : discountApplications // ignore: cast_nullable_to_non_nullable
@@ -417,7 +417,7 @@ abstract class _$CheckoutCopyWith<$Res> implements $CheckoutCopyWith<$Res> {
       PriceV2 subtotalPriceV2,
       PriceV2 lineItemsSubtotalPrice,
       bool requiresShipping,
-      List<AppliedGiftCards> appliedGiftCards,
+      List<AppliedGiftCards>? appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
           List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
@@ -547,7 +547,7 @@ class __$CheckoutCopyWithImpl<$Res> extends _$CheckoutCopyWithImpl<$Res>
       appliedGiftCards: appliedGiftCards == freezed
           ? _value.appliedGiftCards
           : appliedGiftCards // ignore: cast_nullable_to_non_nullable
-              as List<AppliedGiftCards>,
+              as List<AppliedGiftCards>?,
       discountApplications: discountApplications == freezed
           ? _value.discountApplications
           : discountApplications // ignore: cast_nullable_to_non_nullable
@@ -617,7 +617,7 @@ class _$_Checkout extends _Checkout {
       required this.subtotalPriceV2,
       required this.lineItemsSubtotalPrice,
       required this.requiresShipping,
-      required this.appliedGiftCards,
+      this.appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
           required this.discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
@@ -664,7 +664,7 @@ class _$_Checkout extends _Checkout {
   @override
   final bool requiresShipping;
   @override
-  final List<AppliedGiftCards> appliedGiftCards;
+  final List<AppliedGiftCards>? appliedGiftCards;
   @override
   @JsonKey(fromJson: JsonHelper.discountApplications)
   final List<DiscountApplication> discountApplications;
@@ -826,7 +826,7 @@ abstract class _Checkout extends Checkout {
       required PriceV2 subtotalPriceV2,
       required PriceV2 lineItemsSubtotalPrice,
       required bool requiresShipping,
-      required List<AppliedGiftCards> appliedGiftCards,
+      List<AppliedGiftCards>? appliedGiftCards,
       @JsonKey(fromJson: JsonHelper.discountApplications)
           required List<DiscountApplication> discountApplications,
       @JsonKey(fromJson: JsonHelper.lineItems)
@@ -873,7 +873,7 @@ abstract class _Checkout extends Checkout {
   @override
   bool get requiresShipping => throw _privateConstructorUsedError;
   @override
-  List<AppliedGiftCards> get appliedGiftCards =>
+  List<AppliedGiftCards>? get appliedGiftCards =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(fromJson: JsonHelper.discountApplications)

@@ -31,7 +31,7 @@ class Checkout with _$Checkout {
     required PriceV2 subtotalPriceV2,
     required PriceV2 lineItemsSubtotalPrice,
     required bool requiresShipping,
-    required List<AppliedGiftCards> appliedGiftCards,
+    List<AppliedGiftCards>? appliedGiftCards,
     @JsonKey(fromJson: JsonHelper.discountApplications)
         required List<DiscountApplication> discountApplications,
     @JsonKey(fromJson: JsonHelper.lineItems) required List<LineItem> lineItems,

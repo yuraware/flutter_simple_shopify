@@ -28,8 +28,8 @@ _$_Checkout _$_$_CheckoutFromJson(Map<String, dynamic> json) {
     lineItemsSubtotalPrice: PriceV2.fromJson(
         json['lineItemsSubtotalPrice'] as Map<String, dynamic>),
     requiresShipping: json['requiresShipping'] as bool,
-    appliedGiftCards: (json['appliedGiftCards'] as List<dynamic>)
-        .map((e) => AppliedGiftCards.fromJson(e as Map<String, dynamic>))
+    appliedGiftCards: (json['appliedGiftCards'] as List<dynamic>?)
+        ?.map((e) => AppliedGiftCards.fromJson(e as Map<String, dynamic>))
         .toList(),
     discountApplications:
         JsonHelper.discountApplications(json['discountApplications']),
