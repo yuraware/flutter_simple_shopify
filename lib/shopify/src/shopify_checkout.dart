@@ -50,6 +50,8 @@ class ShopifyCheckout with ShopifyError {
       bool withOrder = false,
       bool deleteThisPartOfCache = false}) async {
     final WatchQueryOptions _optionsRequireShipping = WatchQueryOptions(
+        fetchPolicy: FetchPolicy.networkOnly,
+        cacheRereadPolicy: CacheRereadPolicy.ignoreAll,
         document: gql(getCheckoutInfoAboutShipping),
         variables: {
           'id': checkoutId,
