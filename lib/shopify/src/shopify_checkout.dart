@@ -59,6 +59,8 @@ class ShopifyCheckout with ShopifyError {
     QueryResult result = await _graphQLClient!.query(_optionsRequireShipping);
 
     final WatchQueryOptions _options = WatchQueryOptions(
+        fetchPolicy: FetchPolicy.networkOnly,
+        cacheRereadPolicy: CacheRereadPolicy.ignoreAll,
         document: withOrder
             ? gql(getCheckoutInfoWithOrder)
             : gql(_requiresShipping(result) == true && getShippingInfo
