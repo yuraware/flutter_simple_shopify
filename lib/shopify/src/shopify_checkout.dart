@@ -13,6 +13,7 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_i
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_info_with_payment_id_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_information_order.dart';
+import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_order_info_simple.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/checkout/line_item/line_item.dart';
@@ -66,6 +67,25 @@ class ShopifyCheckout with ShopifyError {
                 : withPaymentId
                     ? getCheckoutInfoWithPaymentIdWithoutShipping
                     : getCheckoutInfoWithoutShipping),
+        variables: {
+          'id': checkoutId,
+        });
+    final QueryResult _queryResult = (await _graphQLClient!.query(_options));
+    checkForError(_queryResult);
+    if (deleteThisPartOfCache) {
+      _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
+    }
+
+    return Checkout.fromJson(_queryResult.data!['node']);
+  }
+
+  /// Returns a [Checkout] object.
+  ///
+  /// Returns the Checkout object of the checkout with the [checkoutId].
+  Future<Checkout> getCheckoutInfoOrderSimple(String checkoutId,
+      {bool deleteThisPartOfCache = false}) async {
+    final WatchQueryOptions _options = WatchQueryOptions(
+        document: gql(getCheckoutInfoWithOrderSimple),
         variables: {
           'id': checkoutId,
         });
