@@ -6,13 +6,13 @@ part of 'articles.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Articles _$$_ArticlesFromJson(Map<String, dynamic> json) => _$_Articles(
+_$_Articles _$$_ArticlesFromJson(Map json) => _$_Articles(
       articleList: (json['articleList'] as List<dynamic>)
-          .map((e) => Article.fromJson(e as Map<String, dynamic>))
+          .map((e) => Article.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
 Map<String, dynamic> _$$_ArticlesToJson(_$_Articles instance) =>
     <String, dynamic>{
-      'articleList': instance.articleList,
+      'articleList': instance.articleList.map((e) => e.toJson()).toList(),
     };

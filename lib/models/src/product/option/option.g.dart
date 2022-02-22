@@ -6,7 +6,7 @@ part of 'option.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Option _$$_OptionFromJson(Map<String, dynamic> json) => _$_Option(
+_$_Option _$$_OptionFromJson(Map json) => _$_Option(
       id: json['id'] as String,
       name: json['name'] as String,
       values:

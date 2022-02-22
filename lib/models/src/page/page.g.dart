@@ -6,7 +6,7 @@ part of 'page.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Page _$$_PageFromJson(Map<String, dynamic> json) => _$_Page(
+_$_Page _$$_PageFromJson(Map json) => _$_Page(
       body: json['body'] as String,
       bodySummary: json['bodySummary'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),

@@ -6,33 +6,42 @@ part of 'line_item_order.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LineItemOrder _$$_LineItemOrderFromJson(Map<String, dynamic> json) =>
-    _$_LineItemOrder(
+_$_LineItemOrder _$$_LineItemOrderFromJson(Map json) => _$_LineItemOrder(
       currentQuantity: json['currentQuantity'] as int,
       discountedTotalPrice: PriceV2.fromJson(
-          json['discountedTotalPrice'] as Map<String, dynamic>),
-      originalTotalPrice:
-          PriceV2.fromJson(json['originalTotalPrice'] as Map<String, dynamic>),
+          Map<String, dynamic>.from(json['discountedTotalPrice'] as Map)),
+      originalTotalPrice: PriceV2.fromJson(
+          Map<String, dynamic>.from(json['originalTotalPrice'] as Map)),
       quantity: json['quantity'] as int,
       title: json['title'] as String,
       discountAllocations: (json['discountAllocations'] as List<dynamic>?)
-              ?.map((e) =>
-                  DiscountAllocations.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => DiscountAllocations.fromJson(
+                  Map<String, dynamic>.from(e as Map)))
               .toList() ??
           const [],
       variant: json['variant'] == null
           ? null
           : ProductVariantCheckout.fromJson(
-              json['variant'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['variant'] as Map)),
     );
 
-Map<String, dynamic> _$$_LineItemOrderToJson(_$_LineItemOrder instance) =>
-    <String, dynamic>{
-      'currentQuantity': instance.currentQuantity,
-      'discountedTotalPrice': instance.discountedTotalPrice,
-      'originalTotalPrice': instance.originalTotalPrice,
-      'quantity': instance.quantity,
-      'title': instance.title,
-      'discountAllocations': instance.discountAllocations,
-      'variant': instance.variant,
-    };
+Map<String, dynamic> _$$_LineItemOrderToJson(_$_LineItemOrder instance) {
+  final val = <String, dynamic>{
+    'currentQuantity': instance.currentQuantity,
+    'discountedTotalPrice': instance.discountedTotalPrice.toJson(),
+    'originalTotalPrice': instance.originalTotalPrice.toJson(),
+    'quantity': instance.quantity,
+    'title': instance.title,
+    'discountAllocations':
+        instance.discountAllocations.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('variant', instance.variant?.toJson());
+  return val;
+}

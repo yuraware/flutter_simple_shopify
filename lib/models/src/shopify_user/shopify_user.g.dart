@@ -6,11 +6,11 @@ part of 'shopify_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShopifyUser _$$_ShopifyUserFromJson(Map<String, dynamic> json) =>
-    _$_ShopifyUser(
+_$_ShopifyUser _$$_ShopifyUserFromJson(Map json) => _$_ShopifyUser(
       address: json['address'] == null
           ? null
-          : Addresses.fromJson(json['address'] as Map<String, dynamic>),
+          : Addresses.fromJson(
+              Map<String, dynamic>.from(json['address'] as Map)),
       createdAt: json['createdAt'] as String?,
       displayName: json['displayName'] as String?,
       email: json['email'] as String?,
@@ -22,19 +22,28 @@ _$_ShopifyUser _$$_ShopifyUserFromJson(Map<String, dynamic> json) =>
       lastIncompleteCheckout: json['lastIncompleteCheckout'] == null
           ? null
           : LastIncompleteCheckout.fromJson(
-              json['lastIncompleteCheckout'] as Map<String, dynamic>),
+              Map<String, dynamic>.from(json['lastIncompleteCheckout'] as Map)),
     );
 
-Map<String, dynamic> _$$_ShopifyUserToJson(_$_ShopifyUser instance) =>
-    <String, dynamic>{
-      'address': instance.address,
-      'createdAt': instance.createdAt,
-      'displayName': instance.displayName,
-      'email': instance.email,
-      'firstName': instance.firstName,
-      'id': instance.id,
-      'lastName': instance.lastName,
-      'phone': instance.phone,
-      'tags': instance.tags,
-      'lastIncompleteCheckout': instance.lastIncompleteCheckout,
-    };
+Map<String, dynamic> _$$_ShopifyUserToJson(_$_ShopifyUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('address', instance.address?.toJson());
+  writeNotNull('createdAt', instance.createdAt);
+  writeNotNull('displayName', instance.displayName);
+  writeNotNull('email', instance.email);
+  writeNotNull('firstName', instance.firstName);
+  writeNotNull('id', instance.id);
+  writeNotNull('lastName', instance.lastName);
+  writeNotNull('phone', instance.phone);
+  writeNotNull('tags', instance.tags);
+  writeNotNull(
+      'lastIncompleteCheckout', instance.lastIncompleteCheckout?.toJson());
+  return val;
+}

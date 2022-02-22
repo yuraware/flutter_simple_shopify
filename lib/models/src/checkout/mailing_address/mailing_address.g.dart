@@ -6,8 +6,7 @@ part of 'mailing_address.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MailingAddress _$$_MailingAddressFromJson(Map<String, dynamic> json) =>
-    _$_MailingAddress(
+_$_MailingAddress _$$_MailingAddressFromJson(Map json) => _$_MailingAddress(
       id: json['id'] as String,
       address1: json['address1'] as String,
       city: json['city'] as String,
@@ -27,23 +26,32 @@ _$_MailingAddress _$$_MailingAddressFromJson(Map<String, dynamic> json) =>
       provinceCode: json['provinceCode'] as String?,
     );
 
-Map<String, dynamic> _$$_MailingAddressToJson(_$_MailingAddress instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'address1': instance.address1,
-      'city': instance.city,
-      'country': instance.country,
-      'zip': instance.zip,
-      'lastName': instance.lastName,
-      'name': instance.name,
-      'firstName': instance.firstName,
-      'address2': instance.address2,
-      'company': instance.company,
-      'countryCodeV2': instance.countryCodeV2,
-      'formattedArea': instance.formattedArea,
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
-      'phone': instance.phone,
-      'province': instance.province,
-      'provinceCode': instance.provinceCode,
-    };
+Map<String, dynamic> _$$_MailingAddressToJson(_$_MailingAddress instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'address1': instance.address1,
+    'city': instance.city,
+    'country': instance.country,
+    'zip': instance.zip,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('lastName', instance.lastName);
+  writeNotNull('name', instance.name);
+  writeNotNull('firstName', instance.firstName);
+  writeNotNull('address2', instance.address2);
+  writeNotNull('company', instance.company);
+  writeNotNull('countryCodeV2', instance.countryCodeV2);
+  writeNotNull('formattedArea', instance.formattedArea);
+  writeNotNull('latitude', instance.latitude);
+  writeNotNull('longitude', instance.longitude);
+  writeNotNull('phone', instance.phone);
+  writeNotNull('province', instance.province);
+  writeNotNull('provinceCode', instance.provinceCode);
+  return val;
+}

@@ -6,8 +6,7 @@ part of 'address_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AddressDetails _$$_AddressDetailsFromJson(Map<String, dynamic> json) =>
-    _$_AddressDetails(
+_$_AddressDetails _$$_AddressDetailsFromJson(Map json) => _$_AddressDetails(
       address1: json['address1'] as String?,
       address2: json['address2'] as String?,
       city: json['city'] as String?,
@@ -22,18 +21,26 @@ _$_AddressDetails _$$_AddressDetailsFromJson(Map<String, dynamic> json) =>
       zip: json['zip'] as String?,
     );
 
-Map<String, dynamic> _$$_AddressDetailsToJson(_$_AddressDetails instance) =>
-    <String, dynamic>{
-      'address1': instance.address1,
-      'address2': instance.address2,
-      'city': instance.city,
-      'company': instance.company,
-      'completionService': instance.completionService,
-      'country': instance.country,
-      'countryCode': instance.countryCode,
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
-      'province': instance.province,
-      'provinceCode': instance.provinceCode,
-      'zip': instance.zip,
-    };
+Map<String, dynamic> _$$_AddressDetailsToJson(_$_AddressDetails instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('address1', instance.address1);
+  writeNotNull('address2', instance.address2);
+  writeNotNull('city', instance.city);
+  writeNotNull('company', instance.company);
+  writeNotNull('completionService', instance.completionService);
+  writeNotNull('country', instance.country);
+  writeNotNull('countryCode', instance.countryCode);
+  writeNotNull('latitude', instance.latitude);
+  writeNotNull('longitude', instance.longitude);
+  writeNotNull('province', instance.province);
+  writeNotNull('provinceCode', instance.provinceCode);
+  writeNotNull('zip', instance.zip);
+  return val;
+}
