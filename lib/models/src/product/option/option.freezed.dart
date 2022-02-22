@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'option.dart';
 
@@ -31,7 +33,7 @@ class _$OptionTearOff {
     );
   }
 
-  Option fromJson(Map<String, Object> json) {
+  Option fromJson(Map<String, Object?> json) {
     return Option.fromJson(json);
   }
 }
@@ -135,7 +137,7 @@ class _$_Option extends _Option {
       : super._();
 
   factory _$_Option.fromJson(Map<String, dynamic> json) =>
-      _$_$_OptionFromJson(json);
+      _$$_OptionFromJson(json);
 
   @override
   final String id;
@@ -152,21 +154,19 @@ class _$_Option extends _Option {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Option &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.values, values) ||
-                const DeepCollectionEquality().equals(other.values, values)));
+        (other.runtimeType == runtimeType &&
+            other is _Option &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.values, values));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(values);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(values));
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +175,7 @@ class _$_Option extends _Option {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_OptionToJson(this);
+    return _$$_OptionToJson(this);
   }
 }
 
@@ -189,11 +189,11 @@ abstract class _Option extends Option {
   factory _Option.fromJson(Map<String, dynamic> json) = _$_Option.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  List<String> get values => throw _privateConstructorUsedError;
+  List<String> get values;
   @override
   @JsonKey(ignore: true)
   _$OptionCopyWith<_Option> get copyWith => throw _privateConstructorUsedError;

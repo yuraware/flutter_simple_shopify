@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'available_shipping_rates.dart';
 
@@ -29,7 +31,7 @@ class _$AvailableShippingRatesTearOff {
     );
   }
 
-  AvailableShippingRates fromJson(Map<String, Object> json) {
+  AvailableShippingRates fromJson(Map<String, Object?> json) {
     return AvailableShippingRates.fromJson(json);
   }
 }
@@ -129,7 +131,7 @@ class _$_AvailableShippingRates extends _AvailableShippingRates {
       : super._();
 
   factory _$_AvailableShippingRates.fromJson(Map<String, dynamic> json) =>
-      _$_$_AvailableShippingRatesFromJson(json);
+      _$$_AvailableShippingRatesFromJson(json);
 
   @override
   final bool ready;
@@ -144,19 +146,18 @@ class _$_AvailableShippingRates extends _AvailableShippingRates {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AvailableShippingRates &&
-            (identical(other.ready, ready) ||
-                const DeepCollectionEquality().equals(other.ready, ready)) &&
-            (identical(other.shippingRates, shippingRates) ||
-                const DeepCollectionEquality()
-                    .equals(other.shippingRates, shippingRates)));
+        (other.runtimeType == runtimeType &&
+            other is _AvailableShippingRates &&
+            const DeepCollectionEquality().equals(other.ready, ready) &&
+            const DeepCollectionEquality()
+                .equals(other.shippingRates, shippingRates));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(ready) ^
-      const DeepCollectionEquality().hash(shippingRates);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(ready),
+      const DeepCollectionEquality().hash(shippingRates));
 
   @JsonKey(ignore: true)
   @override
@@ -166,7 +167,7 @@ class _$_AvailableShippingRates extends _AvailableShippingRates {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AvailableShippingRatesToJson(this);
+    return _$$_AvailableShippingRatesToJson(this);
   }
 }
 
@@ -180,9 +181,9 @@ abstract class _AvailableShippingRates extends AvailableShippingRates {
       _$_AvailableShippingRates.fromJson;
 
   @override
-  bool get ready => throw _privateConstructorUsedError;
+  bool get ready;
   @override
-  List<ShippingRates>? get shippingRates => throw _privateConstructorUsedError;
+  List<ShippingRates>? get shippingRates;
   @override
   @JsonKey(ignore: true)
   _$AvailableShippingRatesCopyWith<_AvailableShippingRates> get copyWith =>

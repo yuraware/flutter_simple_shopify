@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'unit_price_measurement.dart';
 
@@ -35,7 +37,7 @@ class _$UnitPriceMeasurementTearOff {
     );
   }
 
-  UnitPriceMeasurement fromJson(Map<String, Object> json) {
+  UnitPriceMeasurement fromJson(Map<String, Object?> json) {
     return UnitPriceMeasurement.fromJson(json);
   }
 }
@@ -183,7 +185,7 @@ class _$_UnitPriceMeasurement extends _UnitPriceMeasurement {
       : super._();
 
   factory _$_UnitPriceMeasurement.fromJson(Map<String, dynamic> json) =>
-      _$_$_UnitPriceMeasurementFromJson(json);
+      _$$_UnitPriceMeasurementFromJson(json);
 
   @override
   final String measuredType;
@@ -204,32 +206,28 @@ class _$_UnitPriceMeasurement extends _UnitPriceMeasurement {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UnitPriceMeasurement &&
-            (identical(other.measuredType, measuredType) ||
-                const DeepCollectionEquality()
-                    .equals(other.measuredType, measuredType)) &&
-            (identical(other.quantityUnit, quantityUnit) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantityUnit, quantityUnit)) &&
-            (identical(other.quantityValue, quantityValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantityValue, quantityValue)) &&
-            (identical(other.referenceUnit, referenceUnit) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceUnit, referenceUnit)) &&
-            (identical(other.referenceValue, referenceValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceValue, referenceValue)));
+        (other.runtimeType == runtimeType &&
+            other is _UnitPriceMeasurement &&
+            const DeepCollectionEquality()
+                .equals(other.measuredType, measuredType) &&
+            const DeepCollectionEquality()
+                .equals(other.quantityUnit, quantityUnit) &&
+            const DeepCollectionEquality()
+                .equals(other.quantityValue, quantityValue) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceUnit, referenceUnit) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceValue, referenceValue));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(measuredType) ^
-      const DeepCollectionEquality().hash(quantityUnit) ^
-      const DeepCollectionEquality().hash(quantityValue) ^
-      const DeepCollectionEquality().hash(referenceUnit) ^
-      const DeepCollectionEquality().hash(referenceValue);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(measuredType),
+      const DeepCollectionEquality().hash(quantityUnit),
+      const DeepCollectionEquality().hash(quantityValue),
+      const DeepCollectionEquality().hash(referenceUnit),
+      const DeepCollectionEquality().hash(referenceValue));
 
   @JsonKey(ignore: true)
   @override
@@ -239,7 +237,7 @@ class _$_UnitPriceMeasurement extends _UnitPriceMeasurement {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_UnitPriceMeasurementToJson(this);
+    return _$$_UnitPriceMeasurementToJson(this);
   }
 }
 
@@ -256,15 +254,15 @@ abstract class _UnitPriceMeasurement extends UnitPriceMeasurement {
       _$_UnitPriceMeasurement.fromJson;
 
   @override
-  String get measuredType => throw _privateConstructorUsedError;
+  String get measuredType;
   @override
-  String get quantityUnit => throw _privateConstructorUsedError;
+  String get quantityUnit;
   @override
-  double get quantityValue => throw _privateConstructorUsedError;
+  double get quantityValue;
   @override
-  String get referenceUnit => throw _privateConstructorUsedError;
+  String get referenceUnit;
   @override
-  int get referenceValue => throw _privateConstructorUsedError;
+  int get referenceValue;
   @override
   @JsonKey(ignore: true)
   _$UnitPriceMeasurementCopyWith<_UnitPriceMeasurement> get copyWith =>

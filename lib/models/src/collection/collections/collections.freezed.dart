@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'collections.dart';
 
@@ -28,7 +30,7 @@ class _$CollectionsTearOff {
     );
   }
 
-  Collections fromJson(Map<String, Object> json) {
+  Collections fromJson(Map<String, Object?> json) {
     return Collections.fromJson(json);
   }
 }
@@ -125,7 +127,7 @@ class _$_Collections implements _Collections {
   _$_Collections({required this.collectionList, required this.hasNextPage});
 
   factory _$_Collections.fromJson(Map<String, dynamic> json) =>
-      _$_$_CollectionsFromJson(json);
+      _$$_CollectionsFromJson(json);
 
   @override
   final List<Collection> collectionList;
@@ -140,20 +142,19 @@ class _$_Collections implements _Collections {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Collections &&
-            (identical(other.collectionList, collectionList) ||
-                const DeepCollectionEquality()
-                    .equals(other.collectionList, collectionList)) &&
-            (identical(other.hasNextPage, hasNextPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasNextPage, hasNextPage)));
+        (other.runtimeType == runtimeType &&
+            other is _Collections &&
+            const DeepCollectionEquality()
+                .equals(other.collectionList, collectionList) &&
+            const DeepCollectionEquality()
+                .equals(other.hasNextPage, hasNextPage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(collectionList) ^
-      const DeepCollectionEquality().hash(hasNextPage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(collectionList),
+      const DeepCollectionEquality().hash(hasNextPage));
 
   @JsonKey(ignore: true)
   @override
@@ -162,7 +163,7 @@ class _$_Collections implements _Collections {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CollectionsToJson(this);
+    return _$$_CollectionsToJson(this);
   }
 }
 
@@ -175,9 +176,9 @@ abstract class _Collections implements Collections {
       _$_Collections.fromJson;
 
   @override
-  List<Collection> get collectionList => throw _privateConstructorUsedError;
+  List<Collection> get collectionList;
   @override
-  bool get hasNextPage => throw _privateConstructorUsedError;
+  bool get hasNextPage;
   @override
   @JsonKey(ignore: true)
   _$CollectionsCopyWith<_Collections> get copyWith =>

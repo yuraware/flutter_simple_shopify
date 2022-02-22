@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'checkout_response.dart';
 
@@ -32,7 +34,7 @@ class _$CheckoutResponseTearOff {
     );
   }
 
-  CheckoutResponse fromJson(Map<String, Object> json) {
+  CheckoutResponse fromJson(Map<String, Object?> json) {
     return CheckoutResponse.fromJson(json);
   }
 }
@@ -153,7 +155,7 @@ class _$_CheckoutResponse extends _CheckoutResponse {
       : super._();
 
   factory _$_CheckoutResponse.fromJson(Map<String, dynamic> json) =>
-      _$_$_CheckoutResponseFromJson(json);
+      _$$_CheckoutResponseFromJson(json);
 
   @override
   final String id;
@@ -171,22 +173,19 @@ class _$_CheckoutResponse extends _CheckoutResponse {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CheckoutResponse &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.webUrl, webUrl) ||
-                const DeepCollectionEquality().equals(other.webUrl, webUrl)) &&
-            (identical(other.lineItems, lineItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.lineItems, lineItems)));
+        (other.runtimeType == runtimeType &&
+            other is _CheckoutResponse &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.webUrl, webUrl) &&
+            const DeepCollectionEquality().equals(other.lineItems, lineItems));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(webUrl) ^
-      const DeepCollectionEquality().hash(lineItems);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(webUrl),
+      const DeepCollectionEquality().hash(lineItems));
 
   @JsonKey(ignore: true)
   @override
@@ -195,7 +194,7 @@ class _$_CheckoutResponse extends _CheckoutResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CheckoutResponseToJson(this);
+    return _$$_CheckoutResponseToJson(this);
   }
 }
 
@@ -211,12 +210,12 @@ abstract class _CheckoutResponse extends CheckoutResponse {
       _$_CheckoutResponse.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get webUrl => throw _privateConstructorUsedError;
+  String get webUrl;
   @override
   @JsonKey(fromJson: JsonHelper.lineItems)
-  List<LineItem> get lineItems => throw _privateConstructorUsedError;
+  List<LineItem> get lineItems;
   @override
   @JsonKey(ignore: true)
   _$CheckoutResponseCopyWith<_CheckoutResponse> get copyWith =>

@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'applied_gift_cards.dart';
 
@@ -31,7 +33,7 @@ class _$AppliedGiftCardsTearOff {
     );
   }
 
-  AppliedGiftCards fromJson(Map<String, Object> json) {
+  AppliedGiftCards fromJson(Map<String, Object?> json) {
     return AppliedGiftCards.fromJson(json);
   }
 }
@@ -165,7 +167,7 @@ class _$_AppliedGiftCards extends _AppliedGiftCards {
       : super._();
 
   factory _$_AppliedGiftCards.fromJson(Map<String, dynamic> json) =>
-      _$_$_AppliedGiftCardsFromJson(json);
+      _$$_AppliedGiftCardsFromJson(json);
 
   @override
   final PriceV2 amountUsedV2;
@@ -182,23 +184,20 @@ class _$_AppliedGiftCards extends _AppliedGiftCards {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppliedGiftCards &&
-            (identical(other.amountUsedV2, amountUsedV2) ||
-                const DeepCollectionEquality()
-                    .equals(other.amountUsedV2, amountUsedV2)) &&
-            (identical(other.balanceV2, balanceV2) ||
-                const DeepCollectionEquality()
-                    .equals(other.balanceV2, balanceV2)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+        (other.runtimeType == runtimeType &&
+            other is _AppliedGiftCards &&
+            const DeepCollectionEquality()
+                .equals(other.amountUsedV2, amountUsedV2) &&
+            const DeepCollectionEquality().equals(other.balanceV2, balanceV2) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(amountUsedV2) ^
-      const DeepCollectionEquality().hash(balanceV2) ^
-      const DeepCollectionEquality().hash(id);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(amountUsedV2),
+      const DeepCollectionEquality().hash(balanceV2),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +206,7 @@ class _$_AppliedGiftCards extends _AppliedGiftCards {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AppliedGiftCardsToJson(this);
+    return _$$_AppliedGiftCardsToJson(this);
   }
 }
 
@@ -222,11 +221,11 @@ abstract class _AppliedGiftCards extends AppliedGiftCards {
       _$_AppliedGiftCards.fromJson;
 
   @override
-  PriceV2 get amountUsedV2 => throw _privateConstructorUsedError;
+  PriceV2 get amountUsedV2;
   @override
-  PriceV2 get balanceV2 => throw _privateConstructorUsedError;
+  PriceV2 get balanceV2;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
   @JsonKey(ignore: true)
   _$AppliedGiftCardsCopyWith<_AppliedGiftCards> get copyWith =>
