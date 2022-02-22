@@ -1,6 +1,5 @@
 import 'package:flutter_simple_shopify/enums/enums.dart';
 import 'package:flutter_simple_shopify/enums/src/sort_key_collection.dart';
-import 'package:flutter_simple_shopify/enums/src/sort_key_product.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_all_collections_optimized.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_all_products_from_collection_by_id.dart';
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_all_products_on_query.dart';
@@ -402,19 +401,26 @@ class ShopifyStore with ShopifyError {
   ///
   /// Gets [limit] amount of [Product] from the [query] search, sorted by [sortKey].
   Future<List<Product>?> getXProductsOnQueryAfterCursor(
-      String query, int limit, String cursor,
+      String query, int limit, String? cursor,
       {SortKeyProduct? sortKey,
       bool deleteThisPartOfCache = false,
       bool reverse = false}) async {
     final WatchQueryOptions _options = WatchQueryOptions(
         document: gql(getXProductsOnQueryAfterCursorQuery),
-        variables: {
-          'cursor': cursor,
-          'limit': limit,
-          'sortKey': sortKey?.parseToString(),
-          'query': query,
-          'reverse': reverse
-        });
+        variables: cursor == null
+            ? {
+                'limit': limit,
+                'sortKey': sortKey?.parseToString(),
+                'query': query,
+                'reverse': reverse
+              }
+            : {
+                'cursor': cursor,
+                'limit': limit,
+                'sortKey': sortKey?.parseToString(),
+                'query': query,
+                'reverse': reverse
+              });
     final QueryResult result =
         await ShopifyConfig.graphQLClient!.query(_options);
     checkForError(result);

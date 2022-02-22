@@ -15,8 +15,6 @@ import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_i
 import 'package:flutter_simple_shopify/graphql_operations/queries/get_checkout_without_shipping_rates.dart';
 import 'package:flutter_simple_shopify/mixins/src/shopfiy_error.dart';
 import 'package:flutter_simple_shopify/models/src/checkout/line_item/line_item.dart';
-import 'package:flutter_simple_shopify/models/src/checkout/mailing_address/mailing_address.dart';
-import 'package:flutter_simple_shopify/models/src/checkout/responses/checkout_response.dart';
 import 'package:flutter_simple_shopify/models/src/order/order.dart';
 import 'package:flutter_simple_shopify/models/src/order/orders/orders.dart';
 import 'package:flutter_simple_shopify/models/src/product/price_v_2/price_v_2.dart';
@@ -144,7 +142,7 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Updates the shipping address on given [checkoutId]
-  Future<CheckoutResponse> shippingAddressUpdate(
+  Future<Checkout> shippingAddressUpdate(
     String checkoutId,
     Address address, {
     bool deleteThisPartOfCache = false,
@@ -165,7 +163,7 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return CheckoutResponse.fromJson(
+    return Checkout.fromJson(
         ((result.data!['checkoutShippingAddressUpdateV2'] ??
                 const {})['checkout'] ??
             const {}));
@@ -175,7 +173,7 @@ class ShopifyCheckout with ShopifyError {
   Future<String?> completeCheckoutWithTokenizedPaymentV2({
     required String checkoutId,
     required PriceV2 price,
-    required MailingAddress billingAddress,
+    required Address billingAddress,
     required String impotencyKey,
     required String tokenizedPayment,
     required String type,
@@ -192,7 +190,15 @@ class ShopifyCheckout with ShopifyError {
             "currencyCode": price.currencyCode
           },
           "idempotencyKey": impotencyKey,
-          "billingAddress": billingAddress.toJson(),
+          "billingAddress": {
+            "firstName": billingAddress.firstName,
+            "lastName": billingAddress.lastName,
+            "address1": billingAddress.address1,
+            "province": billingAddress.province,
+            "country": billingAddress.country,
+            "city": billingAddress.city,
+            "zip": billingAddress.zip
+          },
           "paymentData": tokenizedPayment,
           "type": type
         }
@@ -319,7 +325,7 @@ class ShopifyCheckout with ShopifyError {
     }
   }
 
-  Future<CheckoutResponse> createCheckout(List<LineItem> lineItems,
+  Future<Checkout> createCheckout(List<LineItem> lineItems,
       {Address? mailingAddress, bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options =
         MutationOptions(document: gql(createCheckoutMutation), variables: {
@@ -330,6 +336,12 @@ class ShopifyCheckout with ShopifyError {
                   {
                     'variantId': lineItem.variantId,
                     'quantity': lineItem.quantity,
+                    'customAttributes': lineItem.customAttributes
+                        .map((e) => {
+                              'key': e.key,
+                              'value': e.value,
+                            })
+                        .toList(),
                   }
               ],
             }
@@ -339,6 +351,12 @@ class ShopifyCheckout with ShopifyError {
                   {
                     'variantId': lineItem.variantId,
                     'quantity': lineItem.quantity,
+                    'customAttributes': lineItem.customAttributes
+                        .map((e) => {
+                              'key': e.key,
+                              'value': e.value,
+                            })
+                        .toList(),
                   }
               ],
               'shippingAddress': {
@@ -365,11 +383,11 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return CheckoutResponse.fromJson(
+    return Checkout.fromJson(
         ((result.data!['checkoutCreate'] ?? const {})['checkout'] ?? const {}));
   }
 
-  Future<CheckoutResponse> addLineItemsToCheckout(
+  Future<Checkout> addLineItemsToCheckout(
       {required String checkoutId,
       required List<LineItem> lineItems,
       bool deleteThisPartOfCache = false}) async {
@@ -382,6 +400,12 @@ class ShopifyCheckout with ShopifyError {
               {
                 'variantId': lineItem.id,
                 'quantity': lineItem.quantity,
+                'customAttributes': lineItem.customAttributes
+                    .map((e) => {
+                          'key': e.key,
+                          'value': e.value,
+                        })
+                    .toList(),
               }
           ],
         });
@@ -395,12 +419,12 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return CheckoutResponse.fromJson(
+    return Checkout.fromJson(
         ((result.data!['checkoutLineItemsAdd'] ?? const {})['checkout'] ??
             const {}));
   }
 
-  Future<CheckoutResponse> updateLineItemsInCheckout(
+  Future<Checkout> updateLineItemsInCheckout(
       {required String checkoutId,
       required List<LineItem> lineItems,
       bool deleteThisPartOfCache = false}) async {
@@ -413,6 +437,12 @@ class ShopifyCheckout with ShopifyError {
               {
                 'variantId': lineItem.id,
                 'quantity': lineItem.quantity,
+                'customAttributes': lineItem.customAttributes
+                    .map((e) => {
+                          'key': e.key,
+                          'value': e.value,
+                        })
+                    .toList(),
               }
           ],
         });
@@ -426,12 +456,12 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return CheckoutResponse.fromJson(
+    return Checkout.fromJson(
         ((result.data!['checkoutLineItemsUpdate'] ?? const {})['checkout'] ??
             const {}));
   }
 
-  Future<CheckoutResponse> removeLineItemsFromCheckout(
+  Future<Checkout> removeLineItemsFromCheckout(
       {required String checkoutId,
       required List<LineItem> lineItems,
       bool deleteThisPartOfCache = false}) async {
@@ -452,7 +482,7 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return CheckoutResponse.fromJson(
+    return Checkout.fromJson(
         ((result.data!['checkoutLineItemsRemove'] ?? const {})['checkout'] ??
             const {}));
   }
@@ -479,7 +509,7 @@ class ShopifyCheckout with ShopifyError {
   }
 
   /// Removes the Gift card that [appliedGiftCardId] belongs to, from the [Checkout] that [checkoutId] belongs to.
-  Future<CheckoutResponse> checkoutShippingLineUpdate(
+  Future<Checkout> checkoutShippingLineUpdate(
       String checkoutId, String shippingRateHandle,
       {bool deleteThisPartOfCache = false}) async {
     final MutationOptions _options = MutationOptions(
@@ -498,7 +528,7 @@ class ShopifyCheckout with ShopifyError {
       _graphQLClient!.cache.writeQuery(_options.asRequest, data: {});
     }
 
-    return CheckoutResponse.fromJson(
+    return Checkout.fromJson(
         ((result.data!['checkoutShippingLineUpdate'] ?? const {})['checkout'] ??
             const {}));
   }

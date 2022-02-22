@@ -1,22 +1,78 @@
 String createCheckoutMutation = r'''
 mutation checkoutCreate($input: CheckoutCreateInput!) {
   checkoutCreate(input: $input) {
+    checkoutUserErrors {
+      code
+      field
+      message
+    }
     checkout {
       id
-      webUrl
-      lineItems(first: 5) {
-         edges {
-           node {
-             id
-             title
-             quantity
-              discountAllocations {
+      email
+      ready
+      appliedGiftCards {
+        amountUsedV2 {
+          amount
+          currencyCode
+        }
+        balanceV2 {
+          amount
+          currencyCode
+        }
+        id
+      }
+      requiresShipping
+      shippingLine {
+        handle
+        priceV2 {
+          amount
+          currencyCode
+        }
+        title
+      }
+      shippingAddress {
+        address1
+        address2
+        city
+        company
+        country
+        countryCodeV2
+        firstName
+        formattedArea
+        id
+        lastName
+        latitude
+        longitude
+        name
+        phone
+        province
+        provinceCode
+        zip
+      }
+      completedAt
+      createdAt
+      currencyCode
+      lineItems(first: 10) {
+        edges {
+          node {
+            id
+            quantity
+            title
+            customAttributes {
+                key
+                value
+            }
+            customAttributes {
+                key
+                value
+            }
+             discountAllocations {
               allocatedAmount {
                 amount
                 currencyCode
               }
             }
-             variant {
+            variant {
               id
               priceV2 {
                 amount
@@ -40,6 +96,27 @@ mutation checkoutCreate($input: CheckoutCreateInput!) {
             }
           }
         }
+      }
+      note
+      webUrl
+      updatedAt
+      totalTaxV2 {
+        amount
+        currencyCode
+      }
+      totalPriceV2 {
+        amount
+        currencyCode
+      }
+      taxesIncluded
+      taxExempt
+      subtotalPriceV2 {
+        amount
+        currencyCode
+      }
+      orderStatusUrl
+      order {
+        id
       }
     }
   }

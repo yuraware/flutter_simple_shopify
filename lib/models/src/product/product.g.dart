@@ -7,9 +7,6 @@ part of 'product.dart';
 // **************************************************************************
 
 _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
-      collectionList: (json['collectionList'] as List<dynamic>)
-          .map((e) => AssociatedCollections.fromJson(e as Map<String, dynamic>))
-          .toList(),
       title: json['title'] as String,
       id: json['id'] as String,
       availableForSale: json['availableForSale'] as bool,
@@ -31,6 +28,10 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       metafields: (json['metafields'] as List<dynamic>)
           .map((e) => Metafield.fromJson(e as Map<String, dynamic>))
           .toList(),
+      collectionList: (json['collectionList'] as List<dynamic>?)
+          ?.map(
+              (e) => AssociatedCollections.fromJson(e as Map<String, dynamic>))
+          .toList(),
       cursor: json['cursor'] as String?,
       onlineStoreUrl: json['onlineStoreUrl'] as String?,
       description: json['description'] as String?,
@@ -40,7 +41,6 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
 
 Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
     <String, dynamic>{
-      'collectionList': instance.collectionList,
       'title': instance.title,
       'id': instance.id,
       'availableForSale': instance.availableForSale,
@@ -54,6 +54,7 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'option': instance.option,
       'vendor': instance.vendor,
       'metafields': instance.metafields,
+      'collectionList': instance.collectionList,
       'cursor': instance.cursor,
       'onlineStoreUrl': instance.onlineStoreUrl,
       'description': instance.description,

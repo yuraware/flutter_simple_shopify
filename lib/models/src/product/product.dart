@@ -13,7 +13,6 @@ part 'product.g.dart';
 class Product with _$Product {
   const Product._();
   factory Product({
-    required List<AssociatedCollections> collectionList,
     required String title,
     required String id,
     required bool availableForSale,
@@ -27,6 +26,7 @@ class Product with _$Product {
     required List<Option> option,
     required String vendor,
     required List<Metafield> metafields,
+    List<AssociatedCollections>? collectionList,
     String? cursor,
     String? onlineStoreUrl,
     String? description,
@@ -84,6 +84,8 @@ class Product with _$Product {
 
   static List<AssociatedCollections> _getCollectionList(
       Map<String, dynamic> json) {
+    if ((json['node'] ?? const {})['collections'] == null) return [];
+
     return (((json['node'] ?? const {})['collections'] ?? const {})['edges']
             as List)
         .map((v) => AssociatedCollections.fromGraphJson(v ?? const {}))
