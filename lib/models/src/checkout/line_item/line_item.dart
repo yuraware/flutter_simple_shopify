@@ -13,7 +13,7 @@ class LineItem with _$LineItem {
     required String title,
     required int quantity,
     required List<DiscountAllocations> discountAllocations,
-    @Default([]) List<Attribute> customAttributes,
+    @Default(<Attribute>[]) List<Attribute> customAttributes,
     String? variantId,
     String? id,
     ProductVariantCheckout? variant,

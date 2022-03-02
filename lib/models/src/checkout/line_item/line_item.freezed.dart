@@ -26,7 +26,7 @@ class _$LineItemTearOff {
       {required String title,
       required int quantity,
       required List<DiscountAllocations> discountAllocations,
-      List<Attribute> customAttributes = const [],
+      List<Attribute> customAttributes = const <Attribute>[],
       String? variantId,
       String? id,
       ProductVariantCheckout? variant}) {
@@ -221,7 +221,7 @@ class _$_LineItem extends _LineItem {
       {required this.title,
       required this.quantity,
       required this.discountAllocations,
-      this.customAttributes = const [],
+      this.customAttributes = const <Attribute>[],
       this.variantId,
       this.id,
       this.variant})

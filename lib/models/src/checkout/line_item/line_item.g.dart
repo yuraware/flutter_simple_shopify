@@ -17,7 +17,7 @@ _$_LineItem _$$_LineItemFromJson(Map json) => _$_LineItem(
               ?.map((e) =>
                   Attribute.fromJson(Map<String, dynamic>.from(e as Map)))
               .toList() ??
-          const [],
+          const <Attribute>[],
       variantId: json['variantId'] as String?,
       id: json['id'] as String?,
       variant: json['variant'] == null
