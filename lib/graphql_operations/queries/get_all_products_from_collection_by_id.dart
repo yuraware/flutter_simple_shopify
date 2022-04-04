@@ -13,7 +13,7 @@ query($id : ID!, $cursor : String, $sortKey: ProductCollectionSortKeys){
         id
         originalSrc
       }
-      products(first: 10, sortKey: $sortKey, after: $cursor) {
+      products(first: 250, sortKey: $sortKey, after: $cursor) {
         edges {
           cursor
           node {
@@ -83,7 +83,6 @@ query($id : ID!, $cursor : String, $sortKey: ProductCollectionSortKeys){
                   }
                   availableForSale
                   id
-                  quantityAvailable
                 }
               }
             }

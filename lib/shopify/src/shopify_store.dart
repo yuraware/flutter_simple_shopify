@@ -25,6 +25,22 @@ import '../../graphql_operations/queries/get_n_products.dart';
 import '../../graphql_operations/queries/get_products.dart';
 import '../../models/src/collection/collection.dart';
 import '../../shopify_config.dart';
+import 'package:normalize/utils.dart';
+import 'package:gql/language.dart';
+import 'package:gql/ast.dart';
+
+
+class AddNestedTypenameVisitor extends AddTypenameVisitor {
+  @override
+  visitOperationDefinitionNode(node) {
+    return node;
+  }
+}
+
+DocumentNode mgql(String document) => transform(
+      parseString(document),
+      [AddNestedTypenameVisitor()],
+);
 
 /// ShopifyStore provides various methods related to the shopify store.
 class ShopifyStore with ShopifyError {
@@ -45,7 +61,7 @@ class ShopifyStore with ShopifyError {
     WatchQueryOptions _options;
     do {
       _options = WatchQueryOptions(
-        document: gql(getProductsQuery),
+        document: mgql(getProductsQuery),
         variables: {
           'cursor': cursor,
           'metafieldsNamespace': metafieldsNamespace,

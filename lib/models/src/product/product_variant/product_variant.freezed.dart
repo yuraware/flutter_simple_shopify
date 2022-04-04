@@ -31,7 +31,6 @@ class _$ProductVariantTearOff {
       required String sku,
       required bool requiresShipping,
       required String id,
-      required int quantityAvailable,
       PriceV2? unitPrice,
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
@@ -46,7 +45,6 @@ class _$ProductVariantTearOff {
       sku: sku,
       requiresShipping: requiresShipping,
       id: id,
-      quantityAvailable: quantityAvailable,
       unitPrice: unitPrice,
       unitPriceMeasurement: unitPriceMeasurement,
       selectedOptions: selectedOptions,
@@ -72,8 +70,8 @@ mixin _$ProductVariant {
   bool get availableForSale => throw _privateConstructorUsedError;
   String get sku => throw _privateConstructorUsedError;
   bool get requiresShipping => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
-  int get quantityAvailable => throw _privateConstructorUsedError;
+  String get id =>
+      throw _privateConstructorUsedError; //required int quantityAvailable,
   PriceV2? get unitPrice => throw _privateConstructorUsedError;
   UnitPriceMeasurement? get unitPriceMeasurement =>
       throw _privateConstructorUsedError;
@@ -102,7 +100,6 @@ abstract class $ProductVariantCopyWith<$Res> {
       String sku,
       bool requiresShipping,
       String id,
-      int quantityAvailable,
       PriceV2? unitPrice,
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
@@ -135,7 +132,6 @@ class _$ProductVariantCopyWithImpl<$Res>
     Object? sku = freezed,
     Object? requiresShipping = freezed,
     Object? id = freezed,
-    Object? quantityAvailable = freezed,
     Object? unitPrice = freezed,
     Object? unitPriceMeasurement = freezed,
     Object? selectedOptions = freezed,
@@ -175,10 +171,6 @@ class _$ProductVariantCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      quantityAvailable: quantityAvailable == freezed
-          ? _value.quantityAvailable
-          : quantityAvailable // ignore: cast_nullable_to_non_nullable
-              as int,
       unitPrice: unitPrice == freezed
           ? _value.unitPrice
           : unitPrice // ignore: cast_nullable_to_non_nullable
@@ -271,7 +263,6 @@ abstract class _$ProductVariantCopyWith<$Res>
       String sku,
       bool requiresShipping,
       String id,
-      int quantityAvailable,
       PriceV2? unitPrice,
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
@@ -311,7 +302,6 @@ class __$ProductVariantCopyWithImpl<$Res>
     Object? sku = freezed,
     Object? requiresShipping = freezed,
     Object? id = freezed,
-    Object? quantityAvailable = freezed,
     Object? unitPrice = freezed,
     Object? unitPriceMeasurement = freezed,
     Object? selectedOptions = freezed,
@@ -351,10 +341,6 @@ class __$ProductVariantCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      quantityAvailable: quantityAvailable == freezed
-          ? _value.quantityAvailable
-          : quantityAvailable // ignore: cast_nullable_to_non_nullable
-              as int,
       unitPrice: unitPrice == freezed
           ? _value.unitPrice
           : unitPrice // ignore: cast_nullable_to_non_nullable
@@ -391,7 +377,6 @@ class _$_ProductVariant extends _ProductVariant {
       required this.sku,
       required this.requiresShipping,
       required this.id,
-      required this.quantityAvailable,
       this.unitPrice,
       this.unitPriceMeasurement,
       this.selectedOptions,
@@ -418,9 +403,7 @@ class _$_ProductVariant extends _ProductVariant {
   final bool requiresShipping;
   @override
   final String id;
-  @override
-  final int quantityAvailable;
-  @override
+  @override //required int quantityAvailable,
   final PriceV2? unitPrice;
   @override
   final UnitPriceMeasurement? unitPriceMeasurement;
@@ -433,7 +416,7 @@ class _$_ProductVariant extends _ProductVariant {
 
   @override
   String toString() {
-    return 'ProductVariant(price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, quantityAvailable: $quantityAvailable, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPrice: $compareAtPrice, image: $image)';
+    return 'ProductVariant(price: $price, title: $title, weight: $weight, weightUnit: $weightUnit, availableForSale: $availableForSale, sku: $sku, requiresShipping: $requiresShipping, id: $id, unitPrice: $unitPrice, unitPriceMeasurement: $unitPriceMeasurement, selectedOptions: $selectedOptions, compareAtPrice: $compareAtPrice, image: $image)';
   }
 
   @override
@@ -452,8 +435,6 @@ class _$_ProductVariant extends _ProductVariant {
             const DeepCollectionEquality()
                 .equals(other.requiresShipping, requiresShipping) &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.quantityAvailable, quantityAvailable) &&
             const DeepCollectionEquality().equals(other.unitPrice, unitPrice) &&
             const DeepCollectionEquality()
                 .equals(other.unitPriceMeasurement, unitPriceMeasurement) &&
@@ -475,7 +456,6 @@ class _$_ProductVariant extends _ProductVariant {
       const DeepCollectionEquality().hash(sku),
       const DeepCollectionEquality().hash(requiresShipping),
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(quantityAvailable),
       const DeepCollectionEquality().hash(unitPrice),
       const DeepCollectionEquality().hash(unitPriceMeasurement),
       const DeepCollectionEquality().hash(selectedOptions),
@@ -503,7 +483,6 @@ abstract class _ProductVariant extends ProductVariant {
       required String sku,
       required bool requiresShipping,
       required String id,
-      required int quantityAvailable,
       PriceV2? unitPrice,
       UnitPriceMeasurement? unitPriceMeasurement,
       List<SelectedOption>? selectedOptions,
@@ -530,9 +509,7 @@ abstract class _ProductVariant extends ProductVariant {
   bool get requiresShipping;
   @override
   String get id;
-  @override
-  int get quantityAvailable;
-  @override
+  @override //required int quantityAvailable,
   PriceV2? get unitPrice;
   @override
   UnitPriceMeasurement? get unitPriceMeasurement;

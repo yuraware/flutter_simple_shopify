@@ -15,7 +15,6 @@ _$_ProductVariant _$$_ProductVariantFromJson(Map json) => _$_ProductVariant(
       sku: json['sku'] as String,
       requiresShipping: json['requiresShipping'] as bool,
       id: json['id'] as String,
-      quantityAvailable: json['quantityAvailable'] as int,
       unitPrice: json['unitPrice'] == null
           ? null
           : PriceV2.fromJson(
@@ -48,7 +47,6 @@ Map<String, dynamic> _$$_ProductVariantToJson(_$_ProductVariant instance) {
     'sku': instance.sku,
     'requiresShipping': instance.requiresShipping,
     'id': instance.id,
-    'quantityAvailable': instance.quantityAvailable,
   };
 
   void writeNotNull(String key, dynamic value) {

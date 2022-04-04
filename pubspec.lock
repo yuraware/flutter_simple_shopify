@@ -203,49 +203,51 @@ packages:
       name: gql_dedupe_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.2"
   gql_error_link:
     dependency: transitive
     description:
       name: gql_error_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.2"
   gql_exec:
     dependency: transitive
     description:
       name: gql_exec
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.4.0"
   gql_http_link:
     dependency: transitive
     description:
       name: gql_http_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.2"
   gql_link:
     dependency: transitive
     description:
       name: gql_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.2"
   gql_transform_link:
     dependency: transitive
     description:
       name: gql_transform_link
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.2"
   graphql:
     dependency: "direct main"
     description:
-      name: graphql
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.0"
+      path: "packages/graphql"
+      ref: HEAD
+      resolved-ref: "482b895deb12af88fa015db1a614637e054db04e"
+      url: "git@github.com:yuraware/graphql-flutter.git"
+    source: git
+    version: "5.0.2-beta.7"
   graphs:
     dependency: transitive
     description:
@@ -347,10 +349,12 @@ packages:
   normalize:
     dependency: transitive
     description:
-      name: normalize
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.5"
+      path: "packages/normalize"
+      ref: HEAD
+      resolved-ref: "6ca77fb71358b285c56ead4e3280ca583fca2f7f"
+      url: "git@github.com:yuraware/ferry.git"
+    source: git
+    version: "0.6.0+1"
   package_config:
     dependency: transitive
     description:
@@ -392,7 +396,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.26.0"
+    version: "0.27.3"
   shelf:
     dependency: transitive
     description:
