@@ -245,7 +245,7 @@ packages:
       path: "packages/graphql"
       ref: HEAD
       resolved-ref: "482b895deb12af88fa015db1a614637e054db04e"
-      url: "git@github.com:yuraware/graphql-flutter.git"
+      url: "https://github.com/yuraware/graphql-flutter.git"
     source: git
     version: "5.0.2-beta.7"
   graphs:
